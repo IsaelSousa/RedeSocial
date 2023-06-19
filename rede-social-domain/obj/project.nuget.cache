@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "id5zUDK0w5U86M56YOp+V7J56ODJBoCZluxRXOljZhdFayTzqWqli36R4xQQzsEbFDkOyTUCv9vGJx96grJErA==",
+  "success": true,
+  "projectFilePath": "F:\\www\\CSharp\\rede-social-api\\rede-social-domain\\rede-social-domain.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\toxic\\.nuget\\packages\\mediatr\\12.0.1\\mediatr.12.0.1.nupkg.sha512",
+    "C:\\Users\\toxic\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
+    "C:\\Users\\toxic\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

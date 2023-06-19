@@ -1,0 +1,17 @@
+F:\www\CSharp\rede-social-api\rede-social-application\bin\Debug\net7.0\rede-social-application.deps.json
+F:\www\CSharp\rede-social-api\rede-social-application\bin\Debug\net7.0\rede-social-application.dll
+F:\www\CSharp\rede-social-api\rede-social-application\bin\Debug\net7.0\rede-social-application.pdb
+F:\www\CSharp\rede-social-api\rede-social-application\bin\Debug\net7.0\rede-social-domain.dll
+F:\www\CSharp\rede-social-api\rede-social-application\bin\Debug\net7.0\rede-social-infraestructure.dll
+F:\www\CSharp\rede-social-api\rede-social-application\bin\Debug\net7.0\rede-social-domain.pdb
+F:\www\CSharp\rede-social-api\rede-social-application\bin\Debug\net7.0\rede-social-infraestructure.pdb
+F:\www\CSharp\rede-social-api\rede-social-application\obj\Debug\net7.0\rede-social-application.csproj.AssemblyReference.cache
+F:\www\CSharp\rede-social-api\rede-social-application\obj\Debug\net7.0\rede-social-application.GeneratedMSBuildEditorConfig.editorconfig
+F:\www\CSharp\rede-social-api\rede-social-application\obj\Debug\net7.0\rede-social-application.AssemblyInfoInputs.cache
+F:\www\CSharp\rede-social-api\rede-social-application\obj\Debug\net7.0\rede-social-application.AssemblyInfo.cs
+F:\www\CSharp\rede-social-api\rede-social-application\obj\Debug\net7.0\rede-social-application.csproj.CoreCompileInputs.cache
+F:\www\CSharp\rede-social-api\rede-social-application\obj\Debug\net7.0\rede-social-application.csproj.CopyComplete
+F:\www\CSharp\rede-social-api\rede-social-application\obj\Debug\net7.0\rede-social-application.dll
+F:\www\CSharp\rede-social-api\rede-social-application\obj\Debug\net7.0\refint\rede-social-application.dll
+F:\www\CSharp\rede-social-api\rede-social-application\obj\Debug\net7.0\rede-social-application.pdb
+F:\www\CSharp\rede-social-api\rede-social-application\obj\Debug\net7.0\ref\rede-social-application.dll

@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33530.505
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "rede-social-api", "rede-social-api\rede-social-api.csproj", "{F00A2BC5-14C6-4403-8505-591D40AF0AD7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - API", "1 - API", "{BFC5E042-6EC2-4477-9D62-94AA6B03AFAD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infraestructure", "4 - Infraestructure", "{DB2C87FA-8D61-4D27-95B6-83F0D8E167C1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "rede-social-infraestructure", "rede-social-infraestructure\rede-social-infraestructure.csproj", "{36A15D2E-E538-4B86-B009-266BD020E4CB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{38874CD5-E329-4651-A3EA-F79196A28AB4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "rede-social-domain", "rede-social-domain\rede-social-domain.csproj", "{631B3A98-5B8F-4A9F-BF45-DFA29109251A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{2331D6DF-AD06-4314-A65D-265B56EEE65A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "rede-social-application", "rede-social-application\rede-social-application.csproj", "{DFF46BF3-25E8-487D-B0C8-943CC9EAE7F6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F00A2BC5-14C6-4403-8505-591D40AF0AD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F00A2BC5-14C6-4403-8505-591D40AF0AD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F00A2BC5-14C6-4403-8505-591D40AF0AD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F00A2BC5-14C6-4403-8505-591D40AF0AD7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36A15D2E-E538-4B86-B009-266BD020E4CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36A15D2E-E538-4B86-B009-266BD020E4CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36A15D2E-E538-4B86-B009-266BD020E4CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36A15D2E-E538-4B86-B009-266BD020E4CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{631B3A98-5B8F-4A9F-BF45-DFA29109251A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{631B3A98-5B8F-4A9F-BF45-DFA29109251A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{631B3A98-5B8F-4A9F-BF45-DFA29109251A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{631B3A98-5B8F-4A9F-BF45-DFA29109251A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFF46BF3-25E8-487D-B0C8-943CC9EAE7F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFF46BF3-25E8-487D-B0C8-943CC9EAE7F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFF46BF3-25E8-487D-B0C8-943CC9EAE7F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFF46BF3-25E8-487D-B0C8-943CC9EAE7F6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F00A2BC5-14C6-4403-8505-591D40AF0AD7} = {BFC5E042-6EC2-4477-9D62-94AA6B03AFAD}
+		{36A15D2E-E538-4B86-B009-266BD020E4CB} = {DB2C87FA-8D61-4D27-95B6-83F0D8E167C1}
+		{631B3A98-5B8F-4A9F-BF45-DFA29109251A} = {38874CD5-E329-4651-A3EA-F79196A28AB4}
+		{DFF46BF3-25E8-487D-B0C8-943CC9EAE7F6} = {2331D6DF-AD06-4314-A65D-265B56EEE65A}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F3AB0DE4-9559-4F78-A637-F4EB224C7157}
+	EndGlobalSection
+EndGlobal
