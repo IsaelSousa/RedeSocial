@@ -1,6 +1,7 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using rede_social_application.Commands.Auth.Login;
+using rede_social_application.Commands.Auth.Register;
 
 namespace rede_social_api.Controllers
 {
@@ -18,6 +19,10 @@ namespace rede_social_api.Controllers
 
         [HttpPost("api/[action]")]
         public async Task<string> Login(LoginRequest request)
+            => await _mediator.Send(request);
+
+        [HttpPost("api/[action]")]
+        public async Task<string> Register(RegisterRequest request)
             => await _mediator.Send(request);
 
     }

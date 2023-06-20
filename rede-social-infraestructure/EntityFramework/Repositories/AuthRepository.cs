@@ -1,4 +1,5 @@
 ﻿using rede_social_domain.Entities;
+using rede_social_domain.Entities.AuthAggregate;
 using rede_social_domain.Models;
 using rede_social_infraestructure.EntityFramework.Context;
 using System;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace rede_social_infraestructure.EntityFramework.Repositories
 {
-    public class AuthRepository
+    public class AuthRepository : IAuthRepository
     {
         EFContext _dbContext;
 
@@ -18,22 +19,25 @@ namespace rede_social_infraestructure.EntityFramework.Repositories
             this._dbContext = dbContext;
         }
 
-        public void ValidationAuth(string userName, string password)
-        {
-            _dbContext.Logins.Where(x => x.UserName == userName);
-        }
-
         public async Task RegisterUser(RegisterModel register)
         {
-            Login login = new Login();
-            login.Id = Guid.NewGuid();
-            login.Name = register.UserName;
-            login.Password = register.Password;
-            login.Email = register.Email;
-            login.PhoneNumber = register.PhoneNumber;
-            login.UserName = register.UserName;
+            try
+            {
+                Login login = new Login();
+                login.Name = register.UserName;
+                login.Password = register.Password;
+                login.Email = register.Email;
+                login.PhoneNumber = register.PhoneNumber;
+                login.UserName = register.UserName;
+                login.CreatedAt = DateTime.UtcNow;
 
-            _dbContext.Logins.AddAsync(login);
+                _dbContext.Logins.Add(login);
+                _dbContext.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
     }
 }

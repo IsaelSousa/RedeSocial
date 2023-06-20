@@ -21,6 +21,7 @@
   <ItemGroup>
     <ProjectReference Include="..\rede-social-application\rede-social-application.csproj" />
     <ProjectReference Include="..\rede-social-domain\rede-social-domain.csproj" />
+    <ProjectReference Include="..\rede-social-infraestructure\rede-social-infraestructure.csproj" />
   </ItemGroup>
 
 </Project>

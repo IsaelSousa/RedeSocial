@@ -14,7 +14,8 @@
           "Swashbuckle.AspNetCore": "6.5.0",
           "System.Configuration.ConfigurationManager": "7.0.0",
           "rede-social-application": "1.0.0",
-          "rede-social-domain": "1.0.0"
+          "rede-social-domain": "1.0.0",
+          "rede-social-infraestructure": "1.0.0"
         },
         "runtime": {
           "rede-social-api.dll": {}

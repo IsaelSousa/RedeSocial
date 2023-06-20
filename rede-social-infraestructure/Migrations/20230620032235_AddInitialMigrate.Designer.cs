@@ -12,8 +12,8 @@ using rede_social_infraestructure.EntityFramework.Context;
 namespace rede_social_infraestructure.Migrations
 {
     [DbContext(typeof(EFContext))]
-    [Migration("20230617161410_AddedEFConfiguration")]
-    partial class AddedEFConfiguration
+    [Migration("20230620032235_AddInitialMigrate")]
+    partial class AddInitialMigrate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -28,16 +28,15 @@ namespace rede_social_infraestructure.Migrations
 
             modelBuilder.Entity("rede_social_domain.Entities.Login", b =>
                 {
-                    b.Property<long>("Id")
+                    b.Property<string>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
+                        .HasColumnType("text")
+                        .HasDefaultValue("uuid_generate_v4()");
 
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasDefaultValue(new DateTime(2023, 6, 17, 16, 14, 10, 593, DateTimeKind.Utc).AddTicks(1061));
+                        .HasDefaultValue(new DateTime(2023, 6, 20, 3, 22, 35, 240, DateTimeKind.Utc).AddTicks(7495));
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -61,7 +60,7 @@ namespace rede_social_infraestructure.Migrations
                     b.Property<DateTime>("UpdatedAt")
                         .ValueGeneratedOnUpdate()
                         .HasColumnType("timestamp with time zone")
-                        .HasDefaultValue(new DateTime(2023, 6, 17, 16, 14, 10, 593, DateTimeKind.Utc).AddTicks(1307));
+                        .HasDefaultValue(new DateTime(2023, 6, 20, 3, 22, 35, 240, DateTimeKind.Utc).AddTicks(7659));
 
                     b.Property<string>("UserName")
                         .IsRequired()

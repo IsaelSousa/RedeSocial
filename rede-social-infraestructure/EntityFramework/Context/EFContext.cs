@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using MediatR;
+using Microsoft.EntityFrameworkCore;
 using rede_social_domain.Entities;
 using rede_social_infraestructure.EntityFramework.Configuration;
 using System.Reflection.Metadata;
@@ -21,6 +22,10 @@ namespace rede_social_infraestructure.EntityFramework.Context
             modelBuilder.HasDefaultSchema(schema);
 
             modelBuilder.ApplyConfiguration(new LoginEFConfiguration());
+        }
+        public override int SaveChanges()
+        {
+            return base.SaveChanges();
         }
     }
 }
