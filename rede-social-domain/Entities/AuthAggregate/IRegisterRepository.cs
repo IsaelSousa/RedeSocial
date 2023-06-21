@@ -10,5 +10,6 @@ namespace rede_social_domain.Entities.AuthAggregate
     public interface IAuthRepository
     {
         Task RegisterUser(RegisterModel register);
+        Task<bool> ValidateUserRegister(string userName);
     }
 }

@@ -25,8 +25,8 @@ namespace rede_social_infraestructure.Migrations
                     Email = table.Column<string>(type: "character varying(100)", maxLength: 100, nullable: false),
                     UserName = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
                     PhoneNumber = table.Column<string>(type: "text", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValue: new DateTime(2023, 6, 20, 3, 22, 35, 240, DateTimeKind.Utc).AddTicks(7495)),
-                    UpdatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValue: new DateTime(2023, 6, 20, 3, 22, 35, 240, DateTimeKind.Utc).AddTicks(7659))
+                    CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValue: new DateTime(2023, 6, 21, 3, 22, 27, 819, DateTimeKind.Utc).AddTicks(1096)),
+                    UpdatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValue: new DateTime(2023, 6, 21, 3, 22, 27, 819, DateTimeKind.Utc).AddTicks(1328))
                 },
                 constraints: table =>
                 {

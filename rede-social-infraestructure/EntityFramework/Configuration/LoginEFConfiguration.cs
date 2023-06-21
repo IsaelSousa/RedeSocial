@@ -14,7 +14,7 @@ namespace rede_social_infraestructure.EntityFramework.Configuration
     {
         public void Configure(EntityTypeBuilder<Login> builder)
         {
-            builder.HasKey(x => x.Id);
+            builder.HasKey(x => new { x.Id });
 
             builder.Property(x => x.Id)
                 .ValueGeneratedOnAdd()

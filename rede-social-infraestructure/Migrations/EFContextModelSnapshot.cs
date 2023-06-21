@@ -33,7 +33,7 @@ namespace rede_social_infraestructure.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasDefaultValue(new DateTime(2023, 6, 20, 3, 22, 35, 240, DateTimeKind.Utc).AddTicks(7495));
+                        .HasDefaultValue(new DateTime(2023, 6, 21, 3, 22, 27, 819, DateTimeKind.Utc).AddTicks(1096));
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -57,7 +57,7 @@ namespace rede_social_infraestructure.Migrations
                     b.Property<DateTime>("UpdatedAt")
                         .ValueGeneratedOnUpdate()
                         .HasColumnType("timestamp with time zone")
-                        .HasDefaultValue(new DateTime(2023, 6, 20, 3, 22, 35, 240, DateTimeKind.Utc).AddTicks(7659));
+                        .HasDefaultValue(new DateTime(2023, 6, 21, 3, 22, 27, 819, DateTimeKind.Utc).AddTicks(1328));
 
                     b.Property<string>("UserName")
                         .IsRequired()

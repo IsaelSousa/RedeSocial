@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using rede_social_domain.Entities.AuthAggregate;
 using rede_social_domain.Models;
+using rede_social_domain.Entities;
 using rede_social_infraestructure.EntityFramework.Context;
 using rede_social_infraestructure.EntityFramework.Repositories;
 
@@ -19,15 +20,24 @@ namespace rede_social_application.Commands.Auth.Register
 
         public async Task<string> Handle(RegisterRequest request, CancellationToken cancellationToken)
         {
-            RegisterModel registerModel = new RegisterModel();
-            registerModel.UserName = request.UserName;
-            registerModel.Password = request.Password;
-            registerModel.Name = request.Name;
-            registerModel.Email = request.Email;
-            registerModel.PhoneNumber = request.PhoneNumber;
+            RegisterModel registerModel = new RegisterModel()
+            {
+                UserName = request.UserName,
+                Email = request.Email,
+                Password = request.Password,
+                Name = request.Name,
+                PhoneNumber = request.PhoneNumber,
+            };
 
-            _authRepository.RegisterUser(registerModel);
-            return "Usuário registrado.";
+            bool validate = await _authRepository.ValidateUserRegister(registerModel.UserName);
+
+            if (!validate)
+            {
+                _authRepository.RegisterUser(registerModel);
+                return "Usuário registrado.";
+            }
+            else
+                return "Usuário já registrado.";
         }
     }
 }

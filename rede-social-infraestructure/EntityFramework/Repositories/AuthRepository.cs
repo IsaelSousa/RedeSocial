@@ -1,4 +1,5 @@
-﻿using rede_social_domain.Entities;
+﻿using Microsoft.EntityFrameworkCore;
+using rede_social_domain.Entities;
 using rede_social_domain.Entities.AuthAggregate;
 using rede_social_domain.Models;
 using rede_social_infraestructure.EntityFramework.Context;
@@ -38,6 +39,18 @@ namespace rede_social_infraestructure.EntityFramework.Repositories
             {
                 throw new Exception(ex.Message);
             }
+        }
+
+        public async Task<bool> ValidateUserRegister(string userName)
+        {
+            List<Login> list = await _dbContext.Logins
+                .Where(x => x.UserName == userName).ToListAsync();
+
+            bool validate = false;
+
+            if (list.Count > 0)
+                validate = true;
+            return validate;
         }
     }
 }
