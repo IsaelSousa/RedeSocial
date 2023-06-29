@@ -10,3 +10,15 @@ F:\www\CSharp\rede-social-api\rede-social-domain\obj\Debug\net7.0\rede-social-do
 F:\www\CSharp\rede-social-api\rede-social-domain\obj\Debug\net7.0\refint\rede-social-domain.dll
 F:\www\CSharp\rede-social-api\rede-social-domain\obj\Debug\net7.0\rede-social-domain.pdb
 F:\www\CSharp\rede-social-api\rede-social-domain\obj\Debug\net7.0\ref\rede-social-domain.dll
+E:\www\CSharp\rede-social-api\rede-social-domain\bin\Debug\net7.0\rede-social-domain.deps.json
+E:\www\CSharp\rede-social-api\rede-social-domain\bin\Debug\net7.0\rede-social-domain.dll
+E:\www\CSharp\rede-social-api\rede-social-domain\bin\Debug\net7.0\rede-social-domain.pdb
+E:\www\CSharp\rede-social-api\rede-social-domain\obj\Debug\net7.0\rede-social-domain.csproj.AssemblyReference.cache
+E:\www\CSharp\rede-social-api\rede-social-domain\obj\Debug\net7.0\rede-social-domain.GeneratedMSBuildEditorConfig.editorconfig
+E:\www\CSharp\rede-social-api\rede-social-domain\obj\Debug\net7.0\rede-social-domain.AssemblyInfoInputs.cache
+E:\www\CSharp\rede-social-api\rede-social-domain\obj\Debug\net7.0\rede-social-domain.AssemblyInfo.cs
+E:\www\CSharp\rede-social-api\rede-social-domain\obj\Debug\net7.0\rede-social-domain.csproj.CoreCompileInputs.cache
+E:\www\CSharp\rede-social-api\rede-social-domain\obj\Debug\net7.0\rede-social-domain.dll
+E:\www\CSharp\rede-social-api\rede-social-domain\obj\Debug\net7.0\refint\rede-social-domain.dll
+E:\www\CSharp\rede-social-api\rede-social-domain\obj\Debug\net7.0\rede-social-domain.pdb
+E:\www\CSharp\rede-social-api\rede-social-domain\obj\Debug\net7.0\ref\rede-social-domain.dll

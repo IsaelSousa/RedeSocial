@@ -5,7 +5,7 @@ namespace rede_social_application.Commands.Auth.Login
 {
     public class LoginRequest : IRequest<string>
     {
-        public string userName { get; set; }
-        public string password { get; set; }
+        public string UserName { get; set; }
+        public string Password { get; set; }
     }
 }

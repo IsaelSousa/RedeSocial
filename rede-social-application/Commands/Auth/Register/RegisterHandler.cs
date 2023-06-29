@@ -1,9 +1,10 @@
 ﻿using MediatR;
 using rede_social_domain.Entities.AuthAggregate;
 using rede_social_domain.Models;
-using rede_social_domain.Entities;
 using rede_social_infraestructure.EntityFramework.Context;
-using rede_social_infraestructure.EntityFramework.Repositories;
+using Microsoft.AspNetCore.Identity;
+using rede_social_application.Models;
+using Newtonsoft.Json;
 
 namespace rede_social_application.Commands.Auth.Register
 {
@@ -11,33 +12,36 @@ namespace rede_social_application.Commands.Auth.Register
     {
         private readonly EFContext _context;
         private readonly IAuthRepository _authRepository;
-        public RegisterHandler(EFContext context, IAuthRepository authRepository)
-        {
-            _context = context;
-            _authRepository = authRepository;
-        }
+        private readonly UserManager<ApplicationUser> _userManager;
 
+        public RegisterHandler(EFContext context, IAuthRepository authRepository, UserManager<ApplicationUser> userManager)
+        {
+            this._context = context;
+            this._authRepository = authRepository;
+            this._userManager = userManager;
+        }
 
         public async Task<string> Handle(RegisterRequest request, CancellationToken cancellationToken)
         {
-            RegisterModel registerModel = new RegisterModel()
+            ApplicationUser registerModel = new ApplicationUser()
             {
-                UserName = request.UserName,
                 Email = request.Email,
-                Password = request.Password,
-                Name = request.Name,
+                EmailConfirmed = request.EmailConfirmed,
+                UserName = request.UserName,
+                NormalizedUserName = request.UserName,
+                FirstName = request.FirstName,
+                LastName = request.LastName,
                 PhoneNumber = request.PhoneNumber,
+                PhoneNumberConfirmed = request.PhoneNumberConfirmed,
+                TwoFactorEnabled = request.TwoFactorEnabled
             };
 
-            bool validate = await _authRepository.ValidateUserRegister(registerModel.UserName);
+            var result = await _userManager.CreateAsync(registerModel, request.Password);
 
-            if (!validate)
-            {
-                _authRepository.RegisterUser(registerModel);
+            if (result.Succeeded)
                 return "Usuário registrado.";
-            }
             else
-                return "Usuário já registrado.";
+                return JsonConvert.SerializeObject(result.Errors);
         }
     }
 }

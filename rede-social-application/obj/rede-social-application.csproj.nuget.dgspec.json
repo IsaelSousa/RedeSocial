@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "F:\\www\\CSharp\\rede-social-api\\rede-social-application\\rede-social-application.csproj": {}
+    "E:\\www\\CSharp\\rede-social-api\\rede-social-application\\rede-social-application.csproj": {}
   },
   "projects": {
-    "F:\\www\\CSharp\\rede-social-api\\rede-social-application\\rede-social-application.csproj": {
+    "E:\\www\\CSharp\\rede-social-api\\rede-social-application\\rede-social-application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\www\\CSharp\\rede-social-api\\rede-social-application\\rede-social-application.csproj",
+        "projectUniqueName": "E:\\www\\CSharp\\rede-social-api\\rede-social-application\\rede-social-application.csproj",
         "projectName": "rede-social-application",
-        "projectPath": "F:\\www\\CSharp\\rede-social-api\\rede-social-application\\rede-social-application.csproj",
+        "projectPath": "E:\\www\\CSharp\\rede-social-api\\rede-social-application\\rede-social-application.csproj",
         "packagesPath": "C:\\Users\\toxic\\.nuget\\packages\\",
-        "outputPath": "F:\\www\\CSharp\\rede-social-api\\rede-social-application\\obj\\",
+        "outputPath": "E:\\www\\CSharp\\rede-social-api\\rede-social-application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\toxic\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,11 +28,11 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "F:\\www\\CSharp\\rede-social-api\\rede-social-domain\\rede-social-domain.csproj": {
-                "projectPath": "F:\\www\\CSharp\\rede-social-api\\rede-social-domain\\rede-social-domain.csproj"
+              "E:\\www\\CSharp\\rede-social-api\\rede-social-domain\\rede-social-domain.csproj": {
+                "projectPath": "E:\\www\\CSharp\\rede-social-api\\rede-social-domain\\rede-social-domain.csproj"
               },
-              "F:\\www\\CSharp\\rede-social-api\\rede-social-infraestructure\\rede-social-infraestructure.csproj": {
-                "projectPath": "F:\\www\\CSharp\\rede-social-api\\rede-social-infraestructure\\rede-social-infraestructure.csproj"
+              "E:\\www\\CSharp\\rede-social-api\\rede-social-infraestructure\\rede-social-infraestructure.csproj": {
+                "projectPath": "E:\\www\\CSharp\\rede-social-api\\rede-social-infraestructure\\rede-social-infraestructure.csproj"
               }
             }
           }
@@ -59,6 +59,14 @@
               "target": "Package",
               "version": "[11.1.0, )"
             },
+            "Microsoft.AspNet.Identity.Core": {
+              "target": "Package",
+              "version": "[2.2.3, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.5, )"
+            },
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.3, )"
@@ -80,18 +88,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "F:\\www\\CSharp\\rede-social-api\\rede-social-domain\\rede-social-domain.csproj": {
+    "E:\\www\\CSharp\\rede-social-api\\rede-social-domain\\rede-social-domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\www\\CSharp\\rede-social-api\\rede-social-domain\\rede-social-domain.csproj",
+        "projectUniqueName": "E:\\www\\CSharp\\rede-social-api\\rede-social-domain\\rede-social-domain.csproj",
         "projectName": "rede-social-domain",
-        "projectPath": "F:\\www\\CSharp\\rede-social-api\\rede-social-domain\\rede-social-domain.csproj",
+        "projectPath": "E:\\www\\CSharp\\rede-social-api\\rede-social-domain\\rede-social-domain.csproj",
         "packagesPath": "C:\\Users\\toxic\\.nuget\\packages\\",
-        "outputPath": "F:\\www\\CSharp\\rede-social-api\\rede-social-domain\\obj\\",
+        "outputPath": "E:\\www\\CSharp\\rede-social-api\\rede-social-domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\toxic\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -123,6 +131,10 @@
             "MediatR": {
               "target": "Package",
               "version": "[12.0.1, )"
+            },
+            "Microsoft.Extensions.Identity.Stores": {
+              "target": "Package",
+              "version": "[7.0.5, )"
             }
           },
           "imports": [
@@ -141,18 +153,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "F:\\www\\CSharp\\rede-social-api\\rede-social-infraestructure\\rede-social-infraestructure.csproj": {
+    "E:\\www\\CSharp\\rede-social-api\\rede-social-infraestructure\\rede-social-infraestructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\www\\CSharp\\rede-social-api\\rede-social-infraestructure\\rede-social-infraestructure.csproj",
+        "projectUniqueName": "E:\\www\\CSharp\\rede-social-api\\rede-social-infraestructure\\rede-social-infraestructure.csproj",
         "projectName": "rede-social-infraestructure",
-        "projectPath": "F:\\www\\CSharp\\rede-social-api\\rede-social-infraestructure\\rede-social-infraestructure.csproj",
+        "projectPath": "E:\\www\\CSharp\\rede-social-api\\rede-social-infraestructure\\rede-social-infraestructure.csproj",
         "packagesPath": "C:\\Users\\toxic\\.nuget\\packages\\",
-        "outputPath": "F:\\www\\CSharp\\rede-social-api\\rede-social-infraestructure\\obj\\",
+        "outputPath": "E:\\www\\CSharp\\rede-social-api\\rede-social-infraestructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\toxic\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -169,8 +181,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "F:\\www\\CSharp\\rede-social-api\\rede-social-domain\\rede-social-domain.csproj": {
-                "projectPath": "F:\\www\\CSharp\\rede-social-api\\rede-social-domain\\rede-social-domain.csproj"
+              "E:\\www\\CSharp\\rede-social-api\\rede-social-domain\\rede-social-domain.csproj": {
+                "projectPath": "E:\\www\\CSharp\\rede-social-api\\rede-social-domain\\rede-social-domain.csproj"
               }
             }
           }
@@ -230,7 +242,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
         }
       }
     }

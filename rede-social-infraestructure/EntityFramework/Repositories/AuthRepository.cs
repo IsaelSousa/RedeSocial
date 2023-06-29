@@ -20,37 +20,5 @@ namespace rede_social_infraestructure.EntityFramework.Repositories
             this._dbContext = dbContext;
         }
 
-        public async Task RegisterUser(RegisterModel register)
-        {
-            try
-            {
-                Login login = new Login();
-                login.Name = register.UserName;
-                login.Password = register.Password;
-                login.Email = register.Email;
-                login.PhoneNumber = register.PhoneNumber;
-                login.UserName = register.UserName;
-                login.CreatedAt = DateTime.UtcNow;
-
-                _dbContext.Logins.Add(login);
-                _dbContext.SaveChanges();
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-        }
-
-        public async Task<bool> ValidateUserRegister(string userName)
-        {
-            List<Login> list = await _dbContext.Logins
-                .Where(x => x.UserName == userName).ToListAsync();
-
-            bool validate = false;
-
-            if (list.Count > 0)
-                validate = true;
-            return validate;
-        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using rede_social_application.Models;
 using rede_social_domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -10,42 +11,15 @@ using System.Threading.Tasks;
 
 namespace rede_social_infraestructure.EntityFramework.Configuration
 {
-    internal class LoginEFConfiguration : IEntityTypeConfiguration<Login>
+    internal class LoginEFConfiguration : IEntityTypeConfiguration<ApplicationUser>
     {
-        public void Configure(EntityTypeBuilder<Login> builder)
+        public void Configure(EntityTypeBuilder<ApplicationUser> builder)
         {
-            builder.HasKey(x => new { x.Id });
-
-            builder.Property(x => x.Id)
-                .ValueGeneratedOnAdd()
-                .HasDefaultValue("uuid_generate_v4()");
-
-            builder.Property(x => x.Name)
-                .HasMaxLength(50)
-                .IsRequired();
-
-            builder.Property(x => x.Email)
-                .HasMaxLength(100)
-                .IsRequired();
-
-            builder.Property(x => x.UserName)
-                .HasMaxLength(50)
-                .IsRequired();
-
-            builder.Property(x => x.Password)
-                .HasMaxLength(20)
-                .IsRequired();
-
-            builder.Property(x => x.PhoneNumber)
-                .IsRequired();
 
             builder.Property(x => x.CreatedAt)
-                .ValueGeneratedOnAdd()
-                .HasDefaultValue(DateTime.UtcNow);
+                .HasDefaultValue(DateTime.UtcNow)
+                .IsRequired();
 
-            builder.Property(x => x.UpdatedAt)
-                .ValueGeneratedOnUpdate()
-                .HasDefaultValue(DateTime.UtcNow);
         }
     }
 }

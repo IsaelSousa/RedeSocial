@@ -1,8 +1,11 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using rede_social_application.Commands.Auth.Login;
 using rede_social_application.Commands.Auth.Register;
+using rede_social_application.Models;
 using rede_social_domain.Entities.AuthAggregate;
+using rede_social_domain.Models;
 using rede_social_infraestructure.EntityFramework.Context;
 using rede_social_infraestructure.EntityFramework.Repositories;
 using System.Reflection;
@@ -22,6 +25,10 @@ namespace rede_social_api
 
             service.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(LoginHandler).GetTypeInfo().Assembly));
             service.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(RegisterHandler).GetTypeInfo().Assembly));
+
+            service.AddIdentity<ApplicationUser, IdentityRole>()
+                .AddEntityFrameworkStores<EFContext>()
+                .AddDefaultTokenProviders();
 
             service.AddScoped<IAuthRepository, AuthRepository>();
 
