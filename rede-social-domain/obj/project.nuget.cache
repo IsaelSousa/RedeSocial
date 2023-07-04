@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "H+IACgSjoKuOqXLcuZJ8PRYHyBY+VA9eFl9Py23QaxjwRTGX30aic5XtAZF3cnny1AUYimDHYGSXG3qOmNROTw==",
+  "dgSpecHash": "Tc0QDM3Zwec9ynGzAxTv1zuHKbR6PtrmCSOfRY3UtGlgfPUg0tEl1pOAFL/GnnHOv0/phYmH8kfGa8XFpCqtaA==",
   "success": true,
-  "projectFilePath": "E:\\www\\CSharp\\rede-social-api\\rede-social-domain\\rede-social-domain.csproj",
+  "projectFilePath": "E:\\www\\CSharp\\RedeSocial\\rede-social-domain\\rede-social-domain.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\toxic\\.nuget\\packages\\mediatr\\12.0.1\\mediatr.12.0.1.nupkg.sha512",
     "C:\\Users\\toxic\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",

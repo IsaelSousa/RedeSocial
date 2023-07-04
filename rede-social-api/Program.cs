@@ -18,6 +18,8 @@ class Program : Startup
             app.UseSwaggerUI();
         }
 
+        app.UseCors(options => options.AllowAnyOrigin().AllowAnyHeader().AllowAnyHeader());
+
         app.UseHttpsRedirection();
 
         app.UseAuthorization();

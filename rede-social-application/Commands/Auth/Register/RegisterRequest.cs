@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace rede_social_application.Commands.Auth.Register
 {
-    public class RegisterRequest : IRequest<string>
+    public class RegisterRequest : IRequest<Response>
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }

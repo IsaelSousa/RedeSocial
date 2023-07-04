@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 
 namespace rede_social_application.Commands.Auth.Register
 {
-    public class RegisterHandler : IRequestHandler<RegisterRequest, string>
+    public class RegisterHandler : IRequestHandler<RegisterRequest, Response>
     {
         private readonly EFContext _context;
         private readonly IAuthRepository _authRepository;
@@ -21,7 +21,7 @@ namespace rede_social_application.Commands.Auth.Register
             this._userManager = userManager;
         }
 
-        public async Task<string> Handle(RegisterRequest request, CancellationToken cancellationToken)
+        public async Task<Response> Handle(RegisterRequest request, CancellationToken cancellationToken)
         {
             ApplicationUser registerModel = new ApplicationUser()
             {
@@ -39,9 +39,9 @@ namespace rede_social_application.Commands.Auth.Register
             var result = await _userManager.CreateAsync(registerModel, request.Password);
 
             if (result.Succeeded)
-                return "Usuário registrado.";
+                return new Response("Registrado com sucesso", true);
             else
-                return JsonConvert.SerializeObject(result.Errors);
+                return new Response(result.Errors, false);
         }
     }
 }

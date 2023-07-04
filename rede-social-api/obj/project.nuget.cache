@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "I5iFSf20eOQhn+nXKMNTZrBypuzAauKJyaeSwlta2MsKkHONsMS4t/FnHSVndEEUVknRB77C0PRtTH2UHsH3vw==",
+  "dgSpecHash": "0q3xKIjbG/I0HHLy35v3i4YzdcZo3TD1kIDHaZKgoGZBfO1eevuh+/ImdD/TImpKswej4YnRKYLEqbWGrmR9Aw==",
   "success": true,
-  "projectFilePath": "E:\\www\\CSharp\\rede-social-api\\rede-social-api\\rede-social-api.csproj",
+  "projectFilePath": "E:\\www\\CSharp\\RedeSocial\\rede-social-api\\rede-social-api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\toxic\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\toxic\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",

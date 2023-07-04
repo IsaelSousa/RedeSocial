@@ -10,15 +10,15 @@
   },
   "profiles": {
     "Rede.Social.Api": {
-        "commandName": "Project",
-        "dotnetRunMessages": true,
-        "launchBrowser": true,
-        "launchUrl": "swagger",
-        "applicationUrl": "http://localhost:5281",
-        "environmentVariables": {
-            "ASPNETCORE_ENVIRONMENT": "Development",
-            "DB_CONNECTIONSTRING": "Server=localhost;Port=5432;Database=postgres;User Id=postgres;Password=1234;"
-        }
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "applicationUrl": "http://192.168.0.121:5281",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "DB_CONNECTIONSTRING": "Server=localhost;Port=5432;Database=postgres;User Id=postgres;Password=1234;"
+      }
     },
     "IIS Express": {
       "commandName": "IISExpress",

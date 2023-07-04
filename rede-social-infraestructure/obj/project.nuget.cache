@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "U9Q1KI+LJ9gxsJTuqq2V1O4cqV5L1VLnTbGBATyn88cfM346YVTZMkSzAIG/55xtsJNueZPH//jhiX9MI71zow==",
+  "dgSpecHash": "De3SsLyCbU8gNTK3uZ2ScEW123uEMtAdgzRWc0vbFEk6OZRnlFkBdxHOuuYxwzNoAA+vDNsVJY+vCe9x3cCiPQ==",
   "success": true,
-  "projectFilePath": "E:\\www\\CSharp\\rede-social-api\\rede-social-infraestructure\\rede-social-infraestructure.csproj",
+  "projectFilePath": "E:\\www\\CSharp\\RedeSocial\\rede-social-infraestructure\\rede-social-infraestructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\toxic\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\toxic\\.nuget\\packages\\mediatr\\12.0.1\\mediatr.12.0.1.nupkg.sha512",

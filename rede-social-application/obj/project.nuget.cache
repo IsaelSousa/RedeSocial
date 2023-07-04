@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "08C7OJOCABX315H2oCwg7YDzLtxSpG+lzcPOB024Ep4D+oYt4C4K9DqfrEb2rsa6kXQS5EEp4LXDBh2PbgMPqQ==",
+  "dgSpecHash": "xvd5mH1yO+sCqEBUqOCdh1yl6qAxWTbsnTFUeqso+mYM6z2uWSCBaeeVw6gR67vK6xpREKb8nlerdMZlj6ckSA==",
   "success": true,
-  "projectFilePath": "E:\\www\\CSharp\\rede-social-api\\rede-social-application\\rede-social-application.csproj",
+  "projectFilePath": "E:\\www\\CSharp\\RedeSocial\\rede-social-application\\rede-social-application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\toxic\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\toxic\\.nuget\\packages\\mediatr\\12.0.1\\mediatr.12.0.1.nupkg.sha512",

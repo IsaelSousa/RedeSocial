@@ -6,7 +6,7 @@ using rede_social_infraestructure.EntityFramework.Context;
 
 namespace rede_social_application.Commands.Auth.Login
 {
-    public class LoginHandler : IRequestHandler<LoginRequest, string>
+    public class LoginHandler : IRequestHandler<LoginRequest, Response>
     {
         private readonly EFContext _context;
         private readonly UserManager<ApplicationUser> _userManager;
@@ -15,19 +15,19 @@ namespace rede_social_application.Commands.Auth.Login
             this._context = context;
             this._userManager = userManager;
         }
-        public async Task<string> Handle(LoginRequest request, CancellationToken cancellationToken)
+        public async Task<Response> Handle(LoginRequest request, CancellationToken cancellationToken)
         {
             var user = await _userManager.FindByNameAsync(request.UserName);
             
             if (user == null)
-                return "Usuário não existe";
+                return new Response("User not exists", false);
 
             var isValidPassword = await _userManager.CheckPasswordAsync(user, request.Password);
 
             if (!isValidPassword)
-                return "Senha inválida";
+                return new Response("Invalid Password", false);
 
-            return "Login efetuado";
+            return new Response("Login Completed", true);
 
         }
     }

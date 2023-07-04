@@ -2,6 +2,9 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using rede_social_application.Commands.Auth.Login;
 using rede_social_application.Commands.Auth.Register;
+using rede_social_application.Models;
+using rede_social_application.Services;
+using System.Text;
 
 namespace rede_social_api.Controllers
 {
@@ -16,14 +19,31 @@ namespace rede_social_api.Controllers
             this._mediator = mediator;
         }
 
+        [HttpPost("[action]")]
+        [Consumes("text/plain")]
+        [Produces("application/json")]
+        public async Task<Response> Login()
+        {
+            var body = String.Empty;
+            using (var reader = new StreamReader(Request.Body, Encoding.UTF8))
+                body = await reader.ReadToEndAsync();
 
-        [HttpPost("api/[action]")]
-        public async Task<string> Login(LoginRequest request)
-            => await _mediator.Send(request);
+            LoginRequest data = EncryptionHelper.DecryptData<LoginRequest>(body);
+            return await this._mediator.Send(data);
+        }
 
-        [HttpPost("api/[action]")]
-        public async Task<string> Register(RegisterRequest request)
-            => await _mediator.Send(request);
+        [HttpPost("[action]")]
+        [Consumes("text/plain")]
+        [Produces("application/json")]
+        public async Task<Response> Register()
+        {
+            var body = String.Empty;
+            using (var reader = new StreamReader(Request.Body, Encoding.UTF8))
+                body = await reader.ReadToEndAsync();
+
+            RegisterRequest data = EncryptionHelper.DecryptData<RegisterRequest>(body);
+            return await this._mediator.Send(data);
+        }
 
     }
 }
