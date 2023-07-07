@@ -14,25 +14,6 @@ namespace rede_social_application.Services
     {
         private static string key = "09671b9c34e44f28";
 
-        //public static T DecryptData<T>(string data)
-        //{
-        //    byte[] encryptedBytes = Convert.FromBase64String(data);
-        //    using (Aes aesAlg = Aes.Create())
-        //    {
-        //        byte[] iv = new byte[aesAlg.BlockSize / 8];
-        //        byte[] cipherBytes = new byte[encryptedBytes.Length - iv.Length];
-        //        Buffer.BlockCopy(encryptedBytes, 0, iv, 0, iv.Length);
-        //        Buffer.BlockCopy(encryptedBytes, iv.Length, cipherBytes, 0, cipherBytes.Length);
-        //        aesAlg.Key = Encoding.UTF8.GetBytes(key);
-        //        aesAlg.IV = iv;
-        //        using (ICryptoTransform decryptor = aesAlg.CreateDecryptor(aesAlg.Key, aesAlg.IV))
-        //        {
-        //            byte[] decryptedBytes = decryptor.TransformFinalBlock(cipherBytes, 0, cipherBytes.Length);
-        //            return JsonConvert.DeserializeObject<T>(Encoding.UTF8.GetString(decryptedBytes));
-        //        }
-        //    }
-        //}
-
         public static T DecryptData<T>(string data)
         {
             byte[] iV = new byte[16];
