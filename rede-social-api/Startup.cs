@@ -1,19 +1,22 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using rede_social_application.Commands.Auth.Login;
 using rede_social_application.Commands.Auth.Register;
 using rede_social_application.Models;
 using rede_social_domain.Entities.AuthAggregate;
-using rede_social_domain.Models;
 using rede_social_infraestructure.EntityFramework.Context;
 using rede_social_infraestructure.EntityFramework.Repositories;
 using System.Reflection;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace rede_social_api
 {
     public class Startup
     {
+        private static string keyJwt = "asd123sdesfsd4554ghmkl675uyj45456k4323476767hthgvhgj";
         public static void ConfigureService(IServiceCollection service)
         {
             var config = new ConfigurationBuilder()
@@ -40,6 +43,18 @@ namespace rede_social_api
                 {
                     npgsqlOptions.MigrationsHistoryTable("_EFMigrationsHistory");
                 }));
+
+            service.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(options =>
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = false,
+                    ValidateAudience = false,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(keyJwt)),
+                    ClockSkew = TimeSpan.Zero
+                });
         }
     }
 }

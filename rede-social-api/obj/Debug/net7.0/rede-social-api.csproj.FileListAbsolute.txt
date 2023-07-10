@@ -201,3 +201,11 @@ E:\www\CSharp\RedeSocial\rede-social-api\obj\Debug\net7.0\refint\rede-social-api
 E:\www\CSharp\RedeSocial\rede-social-api\obj\Debug\net7.0\rede-social-api.pdb
 E:\www\CSharp\RedeSocial\rede-social-api\obj\Debug\net7.0\rede-social-api.genruntimeconfig.cache
 E:\www\CSharp\RedeSocial\rede-social-api\obj\Debug\net7.0\ref\rede-social-api.dll
+E:\www\CSharp\RedeSocial\rede-social-api\bin\Debug\net7.0\Microsoft.IdentityModel.Abstractions.dll
+E:\www\CSharp\RedeSocial\rede-social-api\bin\Debug\net7.0\Microsoft.IdentityModel.JsonWebTokens.dll
+E:\www\CSharp\RedeSocial\rede-social-api\bin\Debug\net7.0\Microsoft.IdentityModel.Logging.dll
+E:\www\CSharp\RedeSocial\rede-social-api\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
+E:\www\CSharp\RedeSocial\rede-social-api\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll
+E:\www\CSharp\RedeSocial\rede-social-api\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+E:\www\CSharp\RedeSocial\rede-social-api\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.dll
+E:\www\CSharp\RedeSocial\rede-social-api\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
