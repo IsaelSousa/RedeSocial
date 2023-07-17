@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace rede_social_application.Models
+namespace rede_social_domain.Models.EFModels
 {
     public class ApplicationUser : IdentityUser
     {

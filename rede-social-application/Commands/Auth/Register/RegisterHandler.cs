@@ -5,6 +5,7 @@ using rede_social_infraestructure.EntityFramework.Context;
 using Microsoft.AspNetCore.Identity;
 using rede_social_application.Models;
 using Newtonsoft.Json;
+using rede_social_domain.Models.EFModels;
 
 namespace rede_social_application.Commands.Auth.Register
 {

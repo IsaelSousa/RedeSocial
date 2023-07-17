@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using rede_social_application.Models;
 using rede_social_application.Services;
 using rede_social_domain.Models;
+using rede_social_domain.Models.EFModels;
 using rede_social_infraestructure.EntityFramework.Context;
 
 namespace rede_social_application.Commands.Auth.Login

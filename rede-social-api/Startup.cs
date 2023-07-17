@@ -4,13 +4,13 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using rede_social_application.Commands.Auth.Login;
 using rede_social_application.Commands.Auth.Register;
-using rede_social_application.Models;
 using rede_social_domain.Entities.AuthAggregate;
 using rede_social_infraestructure.EntityFramework.Context;
 using rede_social_infraestructure.EntityFramework.Repositories;
 using System.Reflection;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using rede_social_domain.Models.EFModels;
 
 namespace rede_social_api
 {
