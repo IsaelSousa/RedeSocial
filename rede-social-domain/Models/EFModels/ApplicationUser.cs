@@ -12,6 +12,7 @@ namespace rede_social_domain.Models.EFModels
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+        public int AccessFailedCount { get; set; }
 
     }
 }

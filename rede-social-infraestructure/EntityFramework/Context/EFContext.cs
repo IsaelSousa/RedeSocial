@@ -8,9 +8,9 @@ namespace rede_social_infraestructure.EntityFramework.Context
     {
         public string schema = "Social";
         public DbSet<ApplicationUser> Logins { get; set; }
-        public DbSet<PostModel> post { get; set; }
-        public DbSet<PostComments> postComments { get; set; }
-        public DbSet<PostLikes> postLikes { get; set; }
+        public DbSet<PostModel> Post { get; set; }
+        public DbSet<PostComments> PostComments { get; set; }
+        public DbSet<PostLikes> PostLikes { get; set; }
 
         public string DbPath { get; }
 

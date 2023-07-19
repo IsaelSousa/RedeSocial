@@ -30,7 +30,7 @@ namespace rede_social_application.Commands.Post.InsertPost
                     Image = request.Image
                 };
 
-                _context.post.Add(postModel);
+                _context.Post.Add(postModel);
                 await _context.SaveChangesAsync();
 
                 return new Response("", true);

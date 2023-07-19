@@ -11,6 +11,8 @@ using System.Reflection;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using rede_social_domain.Models.EFModels;
+using rede_social_application.Commands.Post.GetPost;
+using rede_social_application.Commands.Post.InsertPost;
 
 namespace rede_social_api
 {
@@ -28,12 +30,21 @@ namespace rede_social_api
 
             service.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(LoginHandler).GetTypeInfo().Assembly));
             service.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(RegisterHandler).GetTypeInfo().Assembly));
+            service.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(GetPostHandler).GetTypeInfo().Assembly));
+            service.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(InsertPostHandler).GetTypeInfo().Assembly));
 
             service.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<EFContext>()
                 .AddDefaultTokenProviders();
 
             service.AddScoped<IAuthRepository, AuthRepository>();
+
+            service.ConfigureApplicationCookie(options =>
+            {
+                options.Cookie.HttpOnly = true;
+                options.ExpireTimeSpan = TimeSpan.FromMinutes(5);
+                options.LoginPath = "/login";
+            });
 
             service.AddControllers();
             service.AddEndpointsApiExplorer();
@@ -44,17 +55,27 @@ namespace rede_social_api
                     npgsqlOptions.MigrationsHistoryTable("_EFMigrationsHistory");
                 }));
 
-            service.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-                .AddJwtBearer(options =>
-                options.TokenValidationParameters = new TokenValidationParameters
+            service
+                .AddAuthentication(options =>
                 {
-                    ValidateIssuer = false,
-                    ValidateAudience = false,
-                    ValidateLifetime = true,
-                    ValidateIssuerSigningKey = true,
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(keyJwt)),
-                    ClockSkew = TimeSpan.Zero
+                    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                })
+                .AddJwtBearer(options =>
+                {
+                    options.RequireHttpsMetadata = false;
+                    options.SaveToken = true;
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateIssuer = false,
+                        ValidateAudience = false,
+                        ValidateLifetime = true,
+                        ValidateIssuerSigningKey = true,
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(keyJwt)),
+                        ClockSkew = TimeSpan.Zero
+                    };
                 });
+
         }
     }
 }

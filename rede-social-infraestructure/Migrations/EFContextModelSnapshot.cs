@@ -37,7 +37,7 @@ namespace rede_social_infraestructure.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasDefaultValue(new DateTime(2023, 7, 15, 16, 17, 2, 963, DateTimeKind.Utc).AddTicks(5474));
+                        .HasDefaultValue(new DateTime(2023, 7, 17, 23, 1, 2, 843, DateTimeKind.Utc).AddTicks(6030));
 
                     b.Property<string>("Email")
                         .HasColumnType("text");
@@ -117,7 +117,7 @@ namespace rede_social_infraestructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("postComments", "Social");
+                    b.ToTable("PostComments", "Social");
                 });
 
             modelBuilder.Entity("rede_social_domain.Models.EFModels.PostLikes", b =>
@@ -138,7 +138,7 @@ namespace rede_social_infraestructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("postLikes", "Social");
+                    b.ToTable("PostLikes", "Social");
                 });
 
             modelBuilder.Entity("rede_social_domain.Models.EFModels.PostModel", b =>
@@ -166,7 +166,7 @@ namespace rede_social_infraestructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("post", "Social");
+                    b.ToTable("Post", "Social");
                 });
 #pragma warning restore 612, 618
         }
