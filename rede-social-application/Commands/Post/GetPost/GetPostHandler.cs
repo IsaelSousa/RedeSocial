@@ -22,18 +22,24 @@ namespace rede_social_application.Commands.Post.GetPost
         {
             try
             {
-                List<PostPerUser> a = new List<PostPerUser>();
 
-                PostPerUser b = new PostPerUser()
-                { 
-                    Image = "a",
-                    PostMessage = "a",
-                    UserId = "a"
-                };
+                var data = _context.Post
+                    .Join(_context.Logins,
+                        post => post.UserId,
+                        user => user.Id,
+                        (post, user) => new
+                        {
+                            PostId = post.Id,
+                            PostImage = post.Image,
+                            PostMsg = post.PostMessage,
+                            PostCreatedAt = post.CreatedAt,
+                            PostCreatedBy = user.FirstName + " " + user.LastName,
+                        }
+                    )
+                    .OrderByDescending(d => d.PostCreatedAt)
+                    .ToList();
 
-                a.Add(b);
-
-                return new Response(a, true);
+                return new Response(data, true);
             }
             catch (Exception ex)
             {

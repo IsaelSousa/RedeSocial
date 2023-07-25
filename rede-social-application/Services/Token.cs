@@ -7,6 +7,8 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using Microsoft.IdentityModel.Tokens;
 using rede_social_application.Models;
+using Newtonsoft.Json.Linq;
+using Microsoft.AspNet.Identity;
 
 namespace rede_social_application.Services
 {
@@ -18,8 +20,8 @@ namespace rede_social_application.Services
             var claims = new[]
             {
                 new Claim("Id", id),
-                new Claim(JwtRegisteredClaimNames.UniqueName, userName),
-                new Claim(JwtRegisteredClaimNames.Email, email)
+                new Claim("UserName", userName),
+                new Claim("Email", email)
             };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(keyJwt));
@@ -40,6 +42,38 @@ namespace rede_social_application.Services
                 Token = new JwtSecurityTokenHandler().WriteToken(token),
                 Expiration = expiration
             };
+        }
+
+        public static Dictionary<string, string> Deserialize(string tokenParater)
+        {
+            try
+            {
+                var key = Encoding.ASCII.GetBytes(keyJwt);
+                var handler = new JwtSecurityTokenHandler();
+                var validations = new TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(key),
+                    ValidateIssuer = false,
+                    ValidateAudience = false
+                };
+                var claims = handler.ValidateToken(tokenParater, validations, out var tokenSecure);
+                var id = claims.FindFirst("id")?.Value;
+                var email = claims.FindFirst("email")?.Value;
+                var userName = claims.FindFirst("UserName")?.Value;
+
+                Dictionary<string, string> obj = new Dictionary<string, string>();
+
+                obj.Add("Id", id);
+                obj.Add("Email", email);
+                obj.Add("UserName", userName);
+
+                return obj;
+            }
+            catch (Exception ex) 
+            {
+                throw new Exception(ex.Message);
+            }
         }
     }
 }

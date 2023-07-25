@@ -49,6 +49,7 @@ namespace rede_social_api
             service.AddControllers();
             service.AddEndpointsApiExplorer();
             service.AddSwaggerGen();
+
             service.AddDbContext<EFContext>(options => options.UseNpgsql(connectionString,
                 npgsqlOptions =>
                 {

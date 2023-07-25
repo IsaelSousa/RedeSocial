@@ -1,4 +1,5 @@
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using rede_social_application.Commands.Auth.Login;
 using rede_social_application.Commands.Auth.Register;
@@ -50,6 +51,14 @@ namespace rede_social_api.Controllers
             {
                 return new Response("Error in register user", false);
             }
+        }
+
+        [HttpGet("[action]")]
+        [Produces("application/json")]
+        [Authorize]
+        public async Task<Response> ValidationToken()
+        {
+            return new Response(DateTime.Now.ToString(), true);
         }
 
     }
