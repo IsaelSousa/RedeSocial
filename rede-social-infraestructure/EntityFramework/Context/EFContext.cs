@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using rede_social_application.Models;
+using rede_social_domain.Models.EFModels;
 using rede_social_infraestructure.EntityFramework.Configuration;
 
 namespace rede_social_infraestructure.EntityFramework.Context
@@ -8,6 +8,10 @@ namespace rede_social_infraestructure.EntityFramework.Context
     {
         public string schema = "Social";
         public DbSet<ApplicationUser> Logins { get; set; }
+        public DbSet<PostModel> Post { get; set; }
+        public DbSet<PostComments> PostComments { get; set; }
+        public DbSet<PostLikes> PostLikes { get; set; }
+
         public string DbPath { get; }
 
         public EFContext(DbContextOptions<EFContext> options) : base(options)
@@ -21,6 +25,7 @@ namespace rede_social_infraestructure.EntityFramework.Context
 
             modelBuilder.ApplyConfiguration(new LoginEFConfiguration());
         }
+
         public override int SaveChanges()
         {
             return base.SaveChanges();

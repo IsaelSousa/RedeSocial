@@ -23,7 +23,7 @@ namespace rede_social_infraestructure.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("rede_social_application.Models.ApplicationUser", b =>
+            modelBuilder.Entity("rede_social_domain.Models.EFModels.ApplicationUser", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("text");
@@ -37,7 +37,7 @@ namespace rede_social_infraestructure.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasDefaultValue(new DateTime(2023, 6, 29, 1, 15, 14, 231, DateTimeKind.Utc).AddTicks(6303));
+                        .HasDefaultValue(new DateTime(2023, 7, 17, 23, 1, 2, 843, DateTimeKind.Utc).AddTicks(6030));
 
                     b.Property<string>("Email")
                         .HasColumnType("text");
@@ -86,6 +86,87 @@ namespace rede_social_infraestructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Logins", "Social");
+                });
+
+            modelBuilder.Entity("rede_social_domain.Models.EFModels.PostComments", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Comment")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("Image")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("LastUpdated")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("PostId")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PostComments", "Social");
+                });
+
+            modelBuilder.Entity("rede_social_domain.Models.EFModels.PostLikes", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("PostId")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PostLikes", "Social");
+                });
+
+            modelBuilder.Entity("rede_social_domain.Models.EFModels.PostModel", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("Image")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("LastUpdated")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("PostMessage")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Post", "Social");
                 });
 #pragma warning restore 612, 618
         }

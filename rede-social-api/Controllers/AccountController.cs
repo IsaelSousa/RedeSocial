@@ -1,4 +1,5 @@
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using rede_social_application.Commands.Auth.Login;
 using rede_social_application.Commands.Auth.Register;
@@ -10,11 +11,11 @@ namespace rede_social_api.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class AuthController : ControllerBase
+    public class AccountController : ControllerBase
     {
         private readonly IMediator _mediator;
 
-        public AuthController(IMediator mediator)
+        public AccountController(IMediator mediator)
         {
             this._mediator = mediator;
         }
@@ -37,12 +38,27 @@ namespace rede_social_api.Controllers
         [Produces("application/json")]
         public async Task<Response> Register()
         {
-            var body = String.Empty;
-            using (var reader = new StreamReader(Request.Body, Encoding.UTF8))
-                body = await reader.ReadToEndAsync();
+            try
+            {
+                var body = String.Empty;
+                using (var reader = new StreamReader(Request.Body, Encoding.UTF8))
+                    body = await reader.ReadToEndAsync();
 
-            RegisterRequest data = EncryptionHelper.DecryptData<RegisterRequest>(body);
-            return await this._mediator.Send(data);
+                RegisterRequest data = EncryptionHelper.DecryptData<RegisterRequest>(body);
+                return await this._mediator.Send(data);
+            }
+            catch (Exception ex)
+            {
+                return new Response("Error in register user", false);
+            }
+        }
+
+        [HttpGet("[action]")]
+        [Produces("application/json")]
+        [Authorize]
+        public async Task<Response> ValidationToken()
+        {
+            return new Response(DateTime.Now.ToString(), true);
         }
 
     }

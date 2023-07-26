@@ -23,4 +23,12 @@
     <ProjectReference Include="..\rede-social-infraestructure\rede-social-infraestructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Commands\Friend\DeleteFriend\" />
+    <Folder Include="Commands\Friend\GetFriend\" />
+    <Folder Include="Commands\Friend\InviteFriend\" />
+    <Folder Include="Commands\Post\EditPost\" />
+    <Folder Include="Commands\Post\DeletePost\" />
+  </ItemGroup>
+
 </Project>
