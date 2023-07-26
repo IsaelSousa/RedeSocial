@@ -25,6 +25,7 @@ namespace rede_social_infraestructure.EntityFramework.Context
 
             modelBuilder.ApplyConfiguration(new LoginEFConfiguration());
         }
+
         public override int SaveChanges()
         {
             return base.SaveChanges();

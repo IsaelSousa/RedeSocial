@@ -582,19 +582,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\toxic\\.nuget\\packages\\": {}
+    "C:\\Users\\sousaisa\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\www\\CSharp\\RedeSocial\\rede-social-domain\\rede-social-domain.csproj",
+      "projectUniqueName": "C:\\www\\personel\\RedeSocial\\rede-social-domain\\rede-social-domain.csproj",
       "projectName": "rede-social-domain",
-      "projectPath": "E:\\www\\CSharp\\RedeSocial\\rede-social-domain\\rede-social-domain.csproj",
-      "packagesPath": "C:\\Users\\toxic\\.nuget\\packages\\",
-      "outputPath": "E:\\www\\CSharp\\RedeSocial\\rede-social-domain\\obj\\",
+      "projectPath": "C:\\www\\personel\\RedeSocial\\rede-social-domain\\rede-social-domain.csproj",
+      "packagesPath": "C:\\Users\\sousaisa\\.nuget\\packages\\",
+      "outputPath": "C:\\www\\personel\\RedeSocial\\rede-social-domain\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\toxic\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\sousaisa\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -602,7 +602,8 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {},
+        "https://git.sequor.com.br/api/v4/groups/670/-/packages/nuget/index.json": {}
       },
       "frameworks": {
         "net7.0": {
@@ -645,7 +646,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
       }
     }
   }
