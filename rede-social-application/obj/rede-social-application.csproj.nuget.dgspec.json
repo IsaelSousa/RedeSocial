@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\www\\personel\\RedeSocial\\rede-social-application\\rede-social-application.csproj": {}
+    "E:\\www\\CSharp\\RedeSocial\\rede-social-application\\rede-social-application.csproj": {}
   },
   "projects": {
-    "C:\\www\\personel\\RedeSocial\\rede-social-application\\rede-social-application.csproj": {
+    "E:\\www\\CSharp\\RedeSocial\\rede-social-application\\rede-social-application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\www\\personel\\RedeSocial\\rede-social-application\\rede-social-application.csproj",
+        "projectUniqueName": "E:\\www\\CSharp\\RedeSocial\\rede-social-application\\rede-social-application.csproj",
         "projectName": "rede-social-application",
-        "projectPath": "C:\\www\\personel\\RedeSocial\\rede-social-application\\rede-social-application.csproj",
-        "packagesPath": "C:\\Users\\sousaisa\\.nuget\\packages\\",
-        "outputPath": "C:\\www\\personel\\RedeSocial\\rede-social-application\\obj\\",
+        "projectPath": "E:\\www\\CSharp\\RedeSocial\\rede-social-application\\rede-social-application.csproj",
+        "packagesPath": "C:\\Users\\toxic\\.nuget\\packages\\",
+        "outputPath": "E:\\www\\CSharp\\RedeSocial\\rede-social-application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\sousaisa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\toxic\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -29,11 +29,11 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\www\\personel\\RedeSocial\\rede-social-domain\\rede-social-domain.csproj": {
-                "projectPath": "C:\\www\\personel\\RedeSocial\\rede-social-domain\\rede-social-domain.csproj"
+              "E:\\www\\CSharp\\RedeSocial\\rede-social-domain\\rede-social-domain.csproj": {
+                "projectPath": "E:\\www\\CSharp\\RedeSocial\\rede-social-domain\\rede-social-domain.csproj"
               },
-              "C:\\www\\personel\\RedeSocial\\rede-social-infraestructure\\rede-social-infraestructure.csproj": {
-                "projectPath": "C:\\www\\personel\\RedeSocial\\rede-social-infraestructure\\rede-social-infraestructure.csproj"
+              "E:\\www\\CSharp\\RedeSocial\\rede-social-infraestructure\\rede-social-infraestructure.csproj": {
+                "projectPath": "E:\\www\\CSharp\\RedeSocial\\rede-social-infraestructure\\rede-social-infraestructure.csproj"
               }
             }
           }
@@ -93,21 +93,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\www\\personel\\RedeSocial\\rede-social-domain\\rede-social-domain.csproj": {
+    "E:\\www\\CSharp\\RedeSocial\\rede-social-domain\\rede-social-domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\www\\personel\\RedeSocial\\rede-social-domain\\rede-social-domain.csproj",
+        "projectUniqueName": "E:\\www\\CSharp\\RedeSocial\\rede-social-domain\\rede-social-domain.csproj",
         "projectName": "rede-social-domain",
-        "projectPath": "C:\\www\\personel\\RedeSocial\\rede-social-domain\\rede-social-domain.csproj",
-        "packagesPath": "C:\\Users\\sousaisa\\.nuget\\packages\\",
-        "outputPath": "C:\\www\\personel\\RedeSocial\\rede-social-domain\\obj\\",
+        "projectPath": "E:\\www\\CSharp\\RedeSocial\\rede-social-domain\\rede-social-domain.csproj",
+        "packagesPath": "C:\\Users\\toxic\\.nuget\\packages\\",
+        "outputPath": "E:\\www\\CSharp\\RedeSocial\\rede-social-domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\sousaisa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\toxic\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -159,21 +159,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\www\\personel\\RedeSocial\\rede-social-infraestructure\\rede-social-infraestructure.csproj": {
+    "E:\\www\\CSharp\\RedeSocial\\rede-social-infraestructure\\rede-social-infraestructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\www\\personel\\RedeSocial\\rede-social-infraestructure\\rede-social-infraestructure.csproj",
+        "projectUniqueName": "E:\\www\\CSharp\\RedeSocial\\rede-social-infraestructure\\rede-social-infraestructure.csproj",
         "projectName": "rede-social-infraestructure",
-        "projectPath": "C:\\www\\personel\\RedeSocial\\rede-social-infraestructure\\rede-social-infraestructure.csproj",
-        "packagesPath": "C:\\Users\\sousaisa\\.nuget\\packages\\",
-        "outputPath": "C:\\www\\personel\\RedeSocial\\rede-social-infraestructure\\obj\\",
+        "projectPath": "E:\\www\\CSharp\\RedeSocial\\rede-social-infraestructure\\rede-social-infraestructure.csproj",
+        "packagesPath": "C:\\Users\\toxic\\.nuget\\packages\\",
+        "outputPath": "E:\\www\\CSharp\\RedeSocial\\rede-social-infraestructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\sousaisa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\toxic\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -188,8 +188,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\www\\personel\\RedeSocial\\rede-social-domain\\rede-social-domain.csproj": {
-                "projectPath": "C:\\www\\personel\\RedeSocial\\rede-social-domain\\rede-social-domain.csproj"
+              "E:\\www\\CSharp\\RedeSocial\\rede-social-domain\\rede-social-domain.csproj": {
+                "projectPath": "E:\\www\\CSharp\\RedeSocial\\rede-social-domain\\rede-social-domain.csproj"
               }
             }
           }
@@ -249,7 +249,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
         }
       }
     }
