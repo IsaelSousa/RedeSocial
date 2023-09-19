@@ -1,13 +1,6 @@
 ﻿using MediatR;
-using rede_social_application.Commands.Post.InsertPost;
 using rede_social_application.Models;
-using rede_social_domain.Models.EFModels;
 using rede_social_infraestructure.EntityFramework.Context;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace rede_social_application.Commands.Post.GetPost
 {
@@ -33,7 +26,7 @@ namespace rede_social_application.Commands.Post.GetPost
                             PostImage = post.Image,
                             PostMsg = post.PostMessage,
                             PostCreatedAt = post.CreatedAt,
-                            PostCreatedBy = user.FirstName + " " + user.LastName,
+                            PostCreatedBy = user.FirstName,
                         }
                     )
                     .OrderByDescending(d => d.PostCreatedAt)

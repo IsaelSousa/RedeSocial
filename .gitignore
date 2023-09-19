@@ -3,6 +3,13 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+# Bin
+
+rede-social-api/bin/
+rede-social-application/bin/
+rede-social-domain/bin/
+rede-social-infraestructure/bin/
+
 # User-specific files
 *.rsuser
 *.suo
