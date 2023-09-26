@@ -13,7 +13,7 @@ namespace rede_social_infraestructure.EntityFramework.Repositories
 {
     public class AuthRepository : IAuthRepository
     {
-        EFContext _dbContext;
+        public EFContext _dbContext;
 
         public AuthRepository(EFContext dbContext) 
         {
