@@ -24,7 +24,7 @@ namespace rede_social_application.Commands.Post.InsertPost
         {
             try
             {
-                PostModel postModel = new PostModel()
+                rede_social_domain.Models.EFModels.Post postModel = new rede_social_domain.Models.EFModels.Post()
                 {
                     UserId = request.UserId,
                     PostMessage = request.PostMessage,

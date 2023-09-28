@@ -14,5 +14,28 @@ namespace rede_social_domain.Models.EFModels
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         public int AccessFailedCount { get; set; }
 
+        public ApplicationUser(
+            string email,
+            bool emailConfirmed,
+            string userName,
+            string normalizedUserName,
+            string firstName,
+            string lastName,
+            string phoneNumber,
+            bool phoneNumberConfirmed,
+            bool twoFactorEnabled) 
+        {
+            this.Email = email;
+            this.EmailConfirmed = emailConfirmed;
+            this.UserName = userName;
+            this.NormalizedUserName = normalizedUserName;
+            this.FirstName = firstName;
+            this.LastName = lastName;
+            this.PhoneNumber = phoneNumber;
+            this.PhoneNumberConfirmed = phoneNumberConfirmed;
+            this.TwoFactorEnabled = twoFactorEnabled;
+
+        }
+
     }
 }

@@ -13,6 +13,7 @@ using System.Text;
 using rede_social_domain.Models.EFModels;
 using rede_social_application.Commands.Post.GetPost;
 using rede_social_application.Commands.Post.InsertPost;
+using rede_social_domain.Entities.PostAggregate;
 
 namespace rede_social_api
 {
@@ -38,6 +39,7 @@ namespace rede_social_api
                 .AddDefaultTokenProviders();
 
             service.AddScoped<IAuthRepository, AuthRepository>();
+            service.AddScoped<IPostRepository, PostRepository>();
 
             service.ConfigureApplicationCookie(options =>
             {

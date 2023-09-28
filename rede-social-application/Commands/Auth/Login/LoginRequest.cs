@@ -4,7 +4,7 @@ using rede_social_domain.Models;
 
 namespace rede_social_application.Commands.Auth.Login
 {
-    public class LoginRequest : IRequest<Response>
+    public class LoginRequest : IRequest<Response<UserToken>>
     {
         public string UserName { get; set; }
         public string Password { get; set; }

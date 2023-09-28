@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace rede_social_domain.Models.EFModels
 {
-    public class PostModel
+    public class Post
     {
         public string Id { get; set; } = Guid.NewGuid().ToString();
         public string UserId { get; set; }

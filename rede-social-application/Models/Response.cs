@@ -6,15 +6,24 @@ using System.Threading.Tasks;
 
 namespace rede_social_application.Models
 {
-    public class Response
+    public class Response<T>
     {
         public dynamic message { get; set; }
+        public T data { get; set; }
         public bool status { get; set; } = false;
-    
-        public Response(dynamic message, bool status)
+
+        public Response(T data, bool status)
+        {
+            this.data = data;
+            this.status = status;
+        }
+
+        public Response(string message, bool status)
         {
             this.message = message;
             this.status = status;
         }
+
     }
+
 }
