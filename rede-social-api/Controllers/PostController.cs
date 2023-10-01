@@ -25,7 +25,7 @@ namespace rede_social_api.Controllers
         [HttpPost("[action]")]
         [Consumes("text/plain")]
         [Produces("application/json")]
-        public async Task<Response> InsertPost()
+        public async Task<Response<string>> InsertPost()
         {
             var body = String.Empty;
             string token = Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
@@ -43,8 +43,7 @@ namespace rede_social_api.Controllers
         [HttpGet("[action]")]
         [Consumes("text/plain")]
         [Produces("application/json")]
-        [AllowAnonymous]
-        public async Task<Response> GetPost()
+        public async Task<Response<List<PostModel>>> GetPost()
             => await this._mediator.Send(new GetPostRequest());
     }
 }

@@ -5,6 +5,7 @@ using rede_social_application.Commands.Auth.Login;
 using rede_social_application.Commands.Auth.Register;
 using rede_social_application.Models;
 using rede_social_application.Services;
+using rede_social_domain.Models.EFModels;
 using System.Text;
 
 namespace rede_social_api.Controllers
@@ -23,7 +24,7 @@ namespace rede_social_api.Controllers
         [HttpPost("[action]")]
         [Consumes("text/plain")]
         [Produces("application/json")]
-        public async Task<Response> Login()
+        public async Task<Response<UserTokenModel>> Login()
         {
             var body = String.Empty;
             using (var reader = new StreamReader(Request.Body, Encoding.UTF8))
@@ -36,7 +37,7 @@ namespace rede_social_api.Controllers
         [HttpPost("[action]")]
         [Consumes("text/plain")]
         [Produces("application/json")]
-        public async Task<Response> Register()
+        public async Task<Response<ApplicationUser>> Register()
         {
             try
             {
@@ -49,16 +50,16 @@ namespace rede_social_api.Controllers
             }
             catch (Exception ex)
             {
-                return new Response("Error in register user", false);
+                return new Response<ApplicationUser>("Error in register user", false);
             }
         }
 
         [HttpGet("[action]")]
         [Produces("application/json")]
         [Authorize]
-        public async Task<Response> ValidationToken()
+        public async Task<Response<DateTime>> ValidationToken()
         {
-            return new Response(DateTime.Now.ToString(), true);
+            return new Response<DateTime>(DateTime.Now.ToString(), true);
         }
 
     }

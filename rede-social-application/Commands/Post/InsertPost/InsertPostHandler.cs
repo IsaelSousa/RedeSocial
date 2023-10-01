@@ -1,46 +1,36 @@
-﻿using MediatR;
-using Microsoft.IdentityModel.Tokens;
-using rede_social_application.Commands.Auth.Login;
+﻿using AutoMapper;
+using MediatR;
 using rede_social_application.Models;
-using rede_social_application.Services;
+using rede_social_domain.Entities.PostAggregate;
 using rede_social_domain.Models.EFModels;
-using rede_social_infraestructure.EntityFramework.Context;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace rede_social_application.Commands.Post.InsertPost
 {
-    public class InsertPostHandler : IRequestHandler<InsertPostRequest, Response>
+    public class InsertPostHandler : IRequestHandler<InsertPostRequest, Response<string>>
     {
-        private readonly EFContext _context;
-        public InsertPostHandler(EFContext context)
+        private readonly IPostRepository postRepository;
+        private readonly IMapper mapper;
+
+        public InsertPostHandler(IPostRepository postRepository, IMapper mapper)
         {
-            this._context = context;
+            this.postRepository = postRepository;
+            this.mapper = mapper;
         }
-        public async Task<Response> Handle(InsertPostRequest request, CancellationToken cancellationToken)
+
+        public async Task<Response<string>> Handle(InsertPostRequest request, CancellationToken cancellationToken)
         {
             try
             {
-                PostModel postModel = new PostModel()
-                {
-                    UserId = request.UserId,
-                    PostMessage = request.PostMessage,
-                    Image = request.Image.IsNullOrEmpty() ? "" : request.Image,
-                    CreatedAt = DateTime.UtcNow,
-                    LastUpdated = DateTime.UtcNow
-                };
+                var data = this.mapper.Map<PostEF>(request);
 
-                _context.Post.Add(postModel);
-                await _context.SaveChangesAsync();
+                postRepository.InsertPost(data);
 
-                return new Response("Ok", true);
+                return new Response<string>("Ok", true);
             }
             catch
             {
-                return new Response("Error to create post", false);
+                return new Response<string>("Error to create post", false);
             }
         }
     }

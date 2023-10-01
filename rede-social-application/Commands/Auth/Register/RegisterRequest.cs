@@ -1,5 +1,7 @@
 ﻿using MediatR;
+using Microsoft.AspNet.Identity;
 using rede_social_application.Models;
+using rede_social_domain.Models.EFModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace rede_social_application.Commands.Auth.Register
 {
-    public class RegisterRequest : IRequest<Response>
+    public class RegisterRequest : IRequest<Response<ApplicationUser>>
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }

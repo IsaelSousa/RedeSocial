@@ -9,7 +9,7 @@ using rede_social_domain.Models.EFModels;
 
 namespace rede_social_application.Commands.Auth.Register
 {
-    public class RegisterHandler : IRequestHandler<RegisterRequest, Response>
+    public class RegisterHandler : IRequestHandler<RegisterRequest, Response<ApplicationUser>>
     {
         private readonly EFContext _context;
         private readonly IAuthRepository _authRepository;
@@ -22,27 +22,26 @@ namespace rede_social_application.Commands.Auth.Register
             this._userManager = userManager;
         }
 
-        public async Task<Response> Handle(RegisterRequest request, CancellationToken cancellationToken)
+        public async Task<Response<ApplicationUser>> Handle(RegisterRequest request, CancellationToken cancellationToken)
         {
-            ApplicationUser registerModel = new ApplicationUser()
-            {
-                Email = request.Email,
-                EmailConfirmed = request.EmailConfirmed,
-                UserName = request.UserName,
-                NormalizedUserName = request.UserName,
-                FirstName = request.FirstName,
-                LastName = request.LastName,
-                PhoneNumber = request.PhoneNumber,
-                PhoneNumberConfirmed = request.PhoneNumberConfirmed,
-                TwoFactorEnabled = request.TwoFactorEnabled
-            };
+            ApplicationUser registerModel = new ApplicationUser(
+                request.Email,
+                request.EmailConfirmed,
+                request.UserName,
+                request.UserName,
+                request.FirstName,
+                request.LastName,
+                request.PhoneNumber,
+                request.PhoneNumberConfirmed,
+                request.TwoFactorEnabled
+                );
 
             var result = await _userManager.CreateAsync(registerModel, request.Password);
 
             if (result.Succeeded)
-                return new Response("Registrado com sucesso", true);
+                return new Response<ApplicationUser>("Registered with success!", true);
             else
-                return new Response(result.Errors, false);
+                return new Response<ApplicationUser>(result.Errors.ToString(), false);
         }
     }
 }

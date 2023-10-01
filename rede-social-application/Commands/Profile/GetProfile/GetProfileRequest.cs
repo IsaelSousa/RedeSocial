@@ -6,9 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace rede_social_application.Commands.Post.GetPost
+namespace rede_social_application.Commands.Profile.GetProfile
 {
-    public class GetPostRequest : IRequest<Response<List<PostModel>>>
+    public class GetProfileRequest : IRequest<Response<string>>
     {
+        public long Id { get; set; }
     }
 }
