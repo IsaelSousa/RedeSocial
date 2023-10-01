@@ -8,7 +8,7 @@ using rede_social_infraestructure.EntityFramework.Context;
 
 namespace rede_social_application.Commands.Auth.Login
 {
-    public class LoginHandler : IRequestHandler<LoginRequest, Response<UserToken>>
+    public class LoginHandler : IRequestHandler<LoginRequest, Response<UserTokenModel>>
     {
         private readonly EFContext _context;
         private readonly UserManager<ApplicationUser> _userManager;
@@ -17,25 +17,25 @@ namespace rede_social_application.Commands.Auth.Login
             this._context = context;
             this._userManager = userManager;
         }
-        public async Task<Response<UserToken>> Handle(LoginRequest request, CancellationToken cancellationToken)
+        public async Task<Response<UserTokenModel>> Handle(LoginRequest request, CancellationToken cancellationToken)
         {
             try
             {
                 var user = await _userManager.FindByNameAsync(request.UserName);
 
                 if (user == null)
-                    return new Response<UserToken>("User not exists", false);
+                    return new Response<UserTokenModel>("User not exists", false);
 
                 var isValidPassword = await _userManager.CheckPasswordAsync(user, request.Password);
 
                 if (!isValidPassword)
-                    return new Response<UserToken>("Invalid Password", false);
+                    return new Response<UserTokenModel>("Invalid Password", false);
 
-                return new Response<UserToken>(Token.GenerateToken(user.Id, user.UserName, user.Email), true);
+                return new Response<UserTokenModel>(Token.GenerateToken(user.Id, user.UserName, user.Email), true);
             }
             catch (Exception ex)
             {
-                return new Response<UserToken>("Error in login", false);
+                return new Response<UserTokenModel>("Error in login", false);
             }
         }
     }

@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace rede_social_application.Models
 {
-    public class PostPerUser
+    public class UserTokenModel
     {
-        public string UserId { get; set; }
-        public string PostMessage { get; set; }
-        public string Image { get; set; }
+        public string Token { get; set; }
+        public DateTime Expiration { get; set; }
     }
 }

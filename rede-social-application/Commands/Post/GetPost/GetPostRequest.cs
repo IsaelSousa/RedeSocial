@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace rede_social_application.Commands.Post.GetPost
 {
-    public class GetPostRequest : IRequest<Response>
+    public class GetPostRequest : IRequest<Response<List<PostModel>>>
     {
     }
 }

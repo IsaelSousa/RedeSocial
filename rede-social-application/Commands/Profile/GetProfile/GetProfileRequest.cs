@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace rede_social_application.Commands.Profile.GetProfile
 {
-    public class GetProfileRequest : IRequest<Response>
+    public class GetProfileRequest : IRequest<Response<string>>
     {
         public long Id { get; set; }
     }

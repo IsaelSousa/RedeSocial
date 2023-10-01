@@ -1,42 +1,38 @@
-﻿using MediatR;
+﻿using AutoMapper;
+using MediatR;
 using rede_social_application.Models;
+using rede_social_domain.Entities.PostAggregate;
 using rede_social_infraestructure.EntityFramework.Context;
+using System.Collections.Generic;
 
 namespace rede_social_application.Commands.Post.GetPost
 {
-    public class GetPostHandler : IRequestHandler<GetPostRequest, Response>
+    public class GetPostHandler : IRequestHandler<GetPostRequest, Response<List<PostModel>>>
     {
         private readonly EFContext _context;
-        public GetPostHandler(EFContext context)
+        private readonly IPostRepository postRepository;
+        private readonly IMapper mapper;
+        public GetPostHandler(EFContext context, IPostRepository postRepository, IMapper mapper)
         {
             this._context = context;
+            this.postRepository = postRepository;
+            this.mapper = mapper;
+
         }
-        public async Task<Response> Handle(GetPostRequest request, CancellationToken cancellationToken)
+        public async Task<Response<List<PostModel>>> Handle(GetPostRequest request, CancellationToken cancellationToken)
         {
             try
             {
 
-                var data = _context.Post
-                    .Join(_context.Logins,
-                        post => post.UserId,
-                        user => user.Id,
-                        (post, user) => new
-                        {
-                            PostId = post.Id,
-                            PostImage = post.Image,
-                            PostMsg = post.PostMessage,
-                            PostCreatedAt = post.CreatedAt,
-                            PostCreatedBy = user.FirstName,
-                        }
-                    )
-                    .OrderByDescending(d => d.PostCreatedAt)
-                    .ToList();
+                var data = await postRepository.GetPostAsync();
 
-                return new Response(data, true);
+                var map = this.mapper.Map<List<PostModel>>(data);
+
+                return new Response<List<PostModel>>(map, true);
             }
             catch (Exception ex)
             {
-                return new Response("Error to create post", false);
+                return new Response<List<PostModel>>("Error to create post", false);
             }
         }
 

@@ -287,3 +287,5 @@ E:\www\CSharp\RedeSocial\rede-social-api\obj\Debug\net7.0\refint\rede-social-api
 E:\www\CSharp\RedeSocial\rede-social-api\obj\Debug\net7.0\rede-social-api.pdb
 E:\www\CSharp\RedeSocial\rede-social-api\obj\Debug\net7.0\rede-social-api.genruntimeconfig.cache
 E:\www\CSharp\RedeSocial\rede-social-api\obj\Debug\net7.0\ref\rede-social-api.dll
+E:\www\CSharp\RedeSocial\rede-social-api\bin\Debug\net7.0\AutoMapper.dll
+E:\www\CSharp\RedeSocial\rede-social-api\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

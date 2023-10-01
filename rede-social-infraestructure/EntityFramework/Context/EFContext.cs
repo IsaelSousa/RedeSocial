@@ -8,15 +8,13 @@ namespace rede_social_infraestructure.EntityFramework.Context
     {
         public string schema = "Social";
         public DbSet<ApplicationUser> Logins { get; set; }
-        public DbSet<Post> Post { get; set; }
+        public DbSet<PostEF> Post { get; set; }
         public DbSet<PostComments> PostComments { get; set; }
         public DbSet<PostLikes> PostLikes { get; set; }
 
         public string DbPath { get; }
 
-        public EFContext(DbContextOptions<EFContext> options) : base(options)
-        {
-        }
+        public EFContext(DbContextOptions<EFContext> options) : base(options) { }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -24,6 +22,9 @@ namespace rede_social_infraestructure.EntityFramework.Context
             modelBuilder.HasDefaultSchema(schema);
 
             modelBuilder.ApplyConfiguration(new LoginEFConfiguration());
+            modelBuilder.ApplyConfiguration(new PostCommentEFConfiguration());
+            modelBuilder.ApplyConfiguration(new PostEFConfiguration());
+            modelBuilder.ApplyConfiguration(new PostLikeEFConfiguration());
         }
 
         public override int SaveChanges()

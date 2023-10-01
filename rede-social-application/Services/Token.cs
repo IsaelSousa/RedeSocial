@@ -15,7 +15,7 @@ namespace rede_social_application.Services
     public static class Token
     {
         private static string keyJwt = "asd123sdesfsd4554ghmkl675uyj45456k4323476767hthgvhgj";
-        public static UserToken GenerateToken(string id, string userName, string email)
+        public static UserTokenModel GenerateToken(string id, string userName, string email)
         {
             var claims = new[]
             {
@@ -37,7 +37,7 @@ namespace rede_social_application.Services
                 signingCredentials: creds
                 );
 
-            return new UserToken()
+            return new UserTokenModel()
             {
                 Token = new JwtSecurityTokenHandler().WriteToken(token),
                 Expiration = expiration

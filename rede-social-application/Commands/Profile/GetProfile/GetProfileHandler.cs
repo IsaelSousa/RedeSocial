@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace rede_social_application.Commands.Profile.GetProfile
 {
-    public class GetProfileHandler : IRequestHandler<GetProfileRequest, Response>
+    public class GetProfileHandler : IRequestHandler<GetProfileRequest, Response<string>>
     {
-        public Task<Response<Data>> Handle(GetProfileRequest request, CancellationToken cancellationToken)
+        public Task<Response<string>> Handle(GetProfileRequest request, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }

@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace rede_social_infraestructure.EntityFramework.Configuration
 {
-    internal class PostEFConfiguration : IEntityTypeConfiguration<Post>
+    internal class PostEFConfiguration : IEntityTypeConfiguration<PostEF>
     {
-        public void Configure(EntityTypeBuilder<Post> builder)
+        public void Configure(EntityTypeBuilder<PostEF> builder)
         {
             builder.HasKey(x => x.Id);
 

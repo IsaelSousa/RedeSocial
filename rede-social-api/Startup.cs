@@ -14,6 +14,8 @@ using rede_social_domain.Models.EFModels;
 using rede_social_application.Commands.Post.GetPost;
 using rede_social_application.Commands.Post.InsertPost;
 using rede_social_domain.Entities.PostAggregate;
+using AutoMapper;
+using rede_social_application.Mapper;
 
 namespace rede_social_api
 {
@@ -29,6 +31,7 @@ namespace rede_social_api
 
             var connectionString = config.GetConnectionString("DefaultConnection");
 
+            //Mediator
             service.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(LoginHandler).GetTypeInfo().Assembly));
             service.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(RegisterHandler).GetTypeInfo().Assembly));
             service.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(GetPostHandler).GetTypeInfo().Assembly));
@@ -38,6 +41,10 @@ namespace rede_social_api
                 .AddEntityFrameworkStores<EFContext>()
                 .AddDefaultTokenProviders();
 
+            //Mapper
+            service.AddAutoMapper(typeof(MapperProfile));
+
+            //Repository
             service.AddScoped<IAuthRepository, AuthRepository>();
             service.AddScoped<IPostRepository, PostRepository>();
 
@@ -56,7 +63,8 @@ namespace rede_social_api
                 npgsqlOptions =>
                 {
                     npgsqlOptions.MigrationsHistoryTable("_EFMigrationsHistory");
-                }));
+                }),
+                ServiceLifetime.Scoped);
 
             service
                 .AddAuthentication(options =>
