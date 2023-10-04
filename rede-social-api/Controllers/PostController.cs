@@ -1,7 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using rede_social_application.Commands.Auth.Register;
 using rede_social_application.Commands.Post.GetPost;
 using rede_social_application.Commands.Post.InsertPost;
 using rede_social_application.Models;
