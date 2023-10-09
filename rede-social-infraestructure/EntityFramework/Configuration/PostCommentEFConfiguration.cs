@@ -15,9 +15,8 @@ namespace rede_social_infraestructure.EntityFramework.Configuration
         {
             builder.HasKey(e => e.Id);
 
-            builder.Property(e => e.Id)
-                   .HasDefaultValue(Guid.NewGuid().ToString())
-                   .IsRequired();
+            builder.Property(x => x.Id)
+                .ValueGeneratedOnAdd();
 
             builder.Property(e => e.PostId)
                 .IsRequired();
@@ -32,11 +31,11 @@ namespace rede_social_infraestructure.EntityFramework.Configuration
             builder.Property(e => e.Image);
 
             builder.Property(e => e.CreatedAt)
-                .HasDefaultValue(DateTime.Now)
+                .HasDefaultValueSql("CURRENT_TIMESTAMP")
                 .IsRequired();
 
             builder.Property(e => e.LastUpdated)
-                .HasDefaultValue(DateTime.Now)
+                .HasDefaultValueSql("CURRENT_TIMESTAMP")
                 .IsRequired();
         }
     }

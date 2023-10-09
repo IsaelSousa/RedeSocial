@@ -31,7 +31,7 @@ namespace rede_social_application.Commands.Auth.Login
                 if (!isValidPassword)
                     return new Response<UserTokenModel>("Invalid Password", false);
 
-                return new Response<UserTokenModel>(Token.GenerateToken(user.Id, user.UserName, user.Email), true);
+                return new Response<UserTokenModel>(Token.GenerateToken(user.Id), true);
             }
             catch (Exception ex)
             {

@@ -6,23 +6,23 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace rede_social_infraestructure.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialMigrate : Migration
+    public partial class InitialMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.EnsureSchema(
-                name: "Social");
+                name: "dbo");
 
             migrationBuilder.CreateTable(
                 name: "Logins",
-                schema: "Social",
+                schema: "dbo",
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "text", nullable: false),
                     FirstName = table.Column<string>(type: "text", nullable: false),
                     LastName = table.Column<string>(type: "text", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValue: new DateTime(2023, 7, 17, 23, 1, 2, 843, DateTimeKind.Utc).AddTicks(6030)),
+                    CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValueSql: "CURRENT_TIMESTAMP"),
                     AccessFailedCount = table.Column<int>(type: "integer", nullable: false),
                     UserName = table.Column<string>(type: "text", nullable: true),
                     NormalizedUserName = table.Column<string>(type: "text", nullable: true),
@@ -45,15 +45,16 @@ namespace rede_social_infraestructure.Migrations
 
             migrationBuilder.CreateTable(
                 name: "Post",
-                schema: "Social",
+                schema: "dbo",
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "text", nullable: false),
                     UserId = table.Column<string>(type: "text", nullable: false),
-                    PostMessage = table.Column<string>(type: "text", nullable: false),
+                    PostMessage = table.Column<string>(type: "character varying(400)", maxLength: 400, nullable: false),
+                    FirstName = table.Column<string>(type: "text", nullable: false),
                     Image = table.Column<string>(type: "text", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    LastUpdated = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
+                    CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValueSql: "CURRENT_TIMESTAMP"),
+                    LastUpdated = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValueSql: "CURRENT_TIMESTAMP")
                 },
                 constraints: table =>
                 {
@@ -62,16 +63,16 @@ namespace rede_social_infraestructure.Migrations
 
             migrationBuilder.CreateTable(
                 name: "PostComments",
-                schema: "Social",
+                schema: "dbo",
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "text", nullable: false),
                     PostId = table.Column<string>(type: "text", nullable: false),
                     UserId = table.Column<string>(type: "text", nullable: false),
-                    Comment = table.Column<string>(type: "text", nullable: false),
+                    Comment = table.Column<string>(type: "character varying(400)", maxLength: 400, nullable: false),
                     Image = table.Column<string>(type: "text", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
-                    LastUpdated = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
+                    CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValueSql: "CURRENT_TIMESTAMP"),
+                    LastUpdated = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValueSql: "CURRENT_TIMESTAMP")
                 },
                 constraints: table =>
                 {
@@ -80,13 +81,13 @@ namespace rede_social_infraestructure.Migrations
 
             migrationBuilder.CreateTable(
                 name: "PostLikes",
-                schema: "Social",
+                schema: "dbo",
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "text", nullable: false),
                     UserId = table.Column<string>(type: "text", nullable: false),
                     PostId = table.Column<string>(type: "text", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
+                    CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValueSql: "CURRENT_TIMESTAMP")
                 },
                 constraints: table =>
                 {
@@ -99,19 +100,19 @@ namespace rede_social_infraestructure.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Logins",
-                schema: "Social");
+                schema: "dbo");
 
             migrationBuilder.DropTable(
                 name: "Post",
-                schema: "Social");
+                schema: "dbo");
 
             migrationBuilder.DropTable(
                 name: "PostComments",
-                schema: "Social");
+                schema: "dbo");
 
             migrationBuilder.DropTable(
                 name: "PostLikes",
-                schema: "Social");
+                schema: "dbo");
         }
     }
 }

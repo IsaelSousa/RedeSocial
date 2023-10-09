@@ -1,11 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using rede_social_domain.Models.EFModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace rede_social_infraestructure.EntityFramework.Configuration
 {
@@ -15,8 +10,8 @@ namespace rede_social_infraestructure.EntityFramework.Configuration
         {
             builder.HasKey(e => e.Id);
 
-            builder.Property(e => e.Id)
-                .IsRequired();
+            builder.Property(x => x.Id)
+                .ValueGeneratedOnAdd();
 
             builder.Property(e => e.UserId)
                 .IsRequired();
@@ -25,6 +20,7 @@ namespace rede_social_infraestructure.EntityFramework.Configuration
                 .IsRequired();
 
             builder.Property(e => e.CreatedAt)
+                .HasDefaultValueSql("CURRENT_TIMESTAMP")
                 .IsRequired();
         }
     }

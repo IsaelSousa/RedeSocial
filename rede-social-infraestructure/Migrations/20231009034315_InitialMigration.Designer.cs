@@ -12,15 +12,15 @@ using rede_social_infraestructure.EntityFramework.Context;
 namespace rede_social_infraestructure.Migrations
 {
     [DbContext(typeof(EFContext))]
-    [Migration("20230717230102_InitialMigrate")]
-    partial class InitialMigrate
+    [Migration("20231009034315_InitialMigration")]
+    partial class InitialMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasDefaultSchema("Social")
+                .HasDefaultSchema("dbo")
                 .HasAnnotation("ProductVersion", "7.0.5")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
@@ -40,7 +40,7 @@ namespace rede_social_infraestructure.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasDefaultValue(new DateTime(2023, 7, 17, 23, 1, 2, 843, DateTimeKind.Utc).AddTicks(6030));
+                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
 
                     b.Property<string>("Email")
                         .HasColumnType("text");
@@ -88,27 +88,33 @@ namespace rede_social_infraestructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Logins", "Social");
+                    b.ToTable("Logins", "dbo");
                 });
 
             modelBuilder.Entity("rede_social_domain.Models.EFModels.PostComments", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("text");
 
                     b.Property<string>("Comment")
                         .IsRequired()
-                        .HasColumnType("text");
+                        .HasMaxLength(400)
+                        .HasColumnType("character varying(400)");
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("timestamp with time zone");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("timestamp with time zone")
+                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
 
                     b.Property<string>("Image")
                         .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<DateTime>("LastUpdated")
-                        .HasColumnType("timestamp with time zone");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("timestamp with time zone")
+                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
 
                     b.Property<string>("PostId")
                         .IsRequired()
@@ -120,16 +126,57 @@ namespace rede_social_infraestructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("PostComments", "Social");
+                    b.ToTable("PostComments", "dbo");
+                });
+
+            modelBuilder.Entity("rede_social_domain.Models.EFModels.PostEF", b =>
+                {
+                    b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("timestamp with time zone")
+                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Image")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("LastUpdated")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("timestamp with time zone")
+                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
+
+                    b.Property<string>("PostMessage")
+                        .IsRequired()
+                        .HasMaxLength(400)
+                        .HasColumnType("character varying(400)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Post", "dbo");
                 });
 
             modelBuilder.Entity("rede_social_domain.Models.EFModels.PostLikes", b =>
                 {
                     b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("text");
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("timestamp with time zone");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("timestamp with time zone")
+                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
 
                     b.Property<string>("PostId")
                         .IsRequired()
@@ -141,35 +188,7 @@ namespace rede_social_infraestructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("PostLikes", "Social");
-                });
-
-            modelBuilder.Entity("rede_social_domain.Models.EFModels.PostModel", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("text");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("Image")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<DateTime>("LastUpdated")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("PostMessage")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Post", "Social");
+                    b.ToTable("PostLikes", "dbo");
                 });
 #pragma warning restore 612, 618
         }

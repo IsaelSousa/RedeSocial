@@ -17,7 +17,7 @@ namespace rede_social_infraestructure.EntityFramework.Configuration
         {
 
             builder.Property(x => x.CreatedAt)
-                .HasDefaultValue(DateTime.UtcNow)
+                .HasDefaultValueSql("CURRENT_TIMESTAMP")
                 .IsRequired();
 
         }

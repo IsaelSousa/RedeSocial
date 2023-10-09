@@ -3,14 +3,15 @@ using rede_social_domain.Entities.PostAggregate;
 using rede_social_domain.Models.EFModels;
 using rede_social_infraestructure.EntityFramework.Context;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace rede_social_infraestructure.EntityFramework.Repositories
 {
     public class PostRepository : IPostRepository
     {
+        public EFContext DbContext { get; private set; }
         public DbSet<PostEF> DbSet { get; set; }
-        public DbSet<ApplicationUser> Logins { get; set; }
-        public EFContext DbContext { get; set; }
+        public DbSet<ApplicationUser> Logins { get; private set; }
 
         public PostRepository() { }
         public PostRepository(EFContext dbContext) 
@@ -53,13 +54,14 @@ namespace rede_social_infraestructure.EntityFramework.Repositories
                 data.Add(post);
             }
 
-            return data;
+            return data.OrderByDescending(num => num.CreatedAt).ToList();
         }
 
-        public async void InsertPost(PostEF post)
+        public async Task<PostEF> InsertPost(PostEF post)
         {
-            this.DbSet.Add(post);
+            await this.DbSet.AddAsync(post);
             await this.DbContext.SaveChangesAsync();
+            return post;
         }
     }
 }

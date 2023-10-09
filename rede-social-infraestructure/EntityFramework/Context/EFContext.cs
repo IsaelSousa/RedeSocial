@@ -6,25 +6,27 @@ namespace rede_social_infraestructure.EntityFramework.Context
 {
     public class EFContext : DbContext
     {
-        public string schema = "Social";
+        public string schema = "dbo";
+
+        //dotnet ef migrations add InitialMigration -p rede-social-infraestructure -s rede-social-api
         public DbSet<ApplicationUser> Logins { get; set; }
         public DbSet<PostEF> Post { get; set; }
         public DbSet<PostComments> PostComments { get; set; }
         public DbSet<PostLikes> PostLikes { get; set; }
 
         public string DbPath { get; }
-
         public EFContext(DbContextOptions<EFContext> options) : base(options) { }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        protected override void OnModelCreating(ModelBuilder builder)
         {
-            base.OnModelCreating(modelBuilder);
-            modelBuilder.HasDefaultSchema(schema);
+            builder.HasDefaultSchema(schema);
 
-            modelBuilder.ApplyConfiguration(new LoginEFConfiguration());
-            modelBuilder.ApplyConfiguration(new PostCommentEFConfiguration());
-            modelBuilder.ApplyConfiguration(new PostEFConfiguration());
-            modelBuilder.ApplyConfiguration(new PostLikeEFConfiguration());
+            builder.ApplyConfiguration(new LoginEFConfiguration());
+            builder.ApplyConfiguration(new PostCommentEFConfiguration());
+            builder.ApplyConfiguration(new PostEFConfiguration());
+            builder.ApplyConfiguration(new PostLikeEFConfiguration());
+
+            base.OnModelCreating(builder);
         }
 
         public override int SaveChanges()
