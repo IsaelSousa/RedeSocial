@@ -59,7 +59,7 @@ namespace rede_social_api.Controllers
         [Authorize]
         public async Task<Response<DateTime>> ValidationToken()
         {
-            return new Response<DateTime>(DateTime.Now.ToString(), true);
+            return new Response<DateTime>(DateTime.UtcNow.ToString(), true);
         }
 
     }

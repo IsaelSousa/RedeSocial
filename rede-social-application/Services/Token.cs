@@ -15,13 +15,11 @@ namespace rede_social_application.Services
     public static class Token
     {
         private static string keyJwt = "asd123sdesfsd4554ghmkl675uyj45456k4323476767hthgvhgj";
-        public static UserTokenModel GenerateToken(string id, string userName, string email)
+        public static UserTokenModel GenerateToken(string id)
         {
             var claims = new[]
             {
-                new Claim("Id", id),
-                new Claim("UserName", userName),
-                new Claim("Email", email)
+                new Claim("Id", id)
             };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(keyJwt));
@@ -65,8 +63,6 @@ namespace rede_social_application.Services
                 Dictionary<string, string> obj = new Dictionary<string, string>();
 
                 obj.Add("Id", id);
-                obj.Add("Email", email);
-                obj.Add("UserName", userName);
 
                 return obj;
             }

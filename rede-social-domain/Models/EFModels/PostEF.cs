@@ -8,10 +8,10 @@ namespace rede_social_domain.Models.EFModels
 {
     public class PostEF
     {
-        public string Id { get; set; } = Guid.NewGuid().ToString();
+        public string Id { get; set; }
         public string UserId { get; set; }
-        public string FirstName { get; set; }
         public string PostMessage { get; set; }
+        public string FirstName { get; set; }
         public string Image { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime LastUpdated { get; set; }

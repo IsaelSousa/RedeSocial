@@ -10,7 +10,7 @@ namespace rede_social_domain.Entities.PostAggregate
     public interface IPostRepository
     {
         public Task<List<PostEF>> GetPostAsync();
-        public void InsertPost(PostEF post);
+        public Task<PostEF> InsertPost(PostEF post);
 
     }
 }

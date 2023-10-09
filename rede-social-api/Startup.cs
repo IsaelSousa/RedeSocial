@@ -62,7 +62,7 @@ namespace rede_social_api
             service.AddDbContext<EFContext>(options => options.UseNpgsql(connectionString,
                 npgsqlOptions =>
                 {
-                    npgsqlOptions.MigrationsHistoryTable("_EFMigrationsHistory");
+                    npgsqlOptions.MigrationsHistoryTable("_EFMigrationsHistory", "dbo");
                 }),
                 ServiceLifetime.Scoped);
 

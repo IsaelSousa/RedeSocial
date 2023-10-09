@@ -11,8 +11,10 @@ namespace rede_social_domain.Models.EFModels
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+        public DateTime CreatedAt { get; set; }
         public int AccessFailedCount { get; set; }
+
+        public ApplicationUser() { }
 
         public ApplicationUser(
             string email,
@@ -34,7 +36,6 @@ namespace rede_social_domain.Models.EFModels
             this.PhoneNumber = phoneNumber;
             this.PhoneNumberConfirmed = phoneNumberConfirmed;
             this.TwoFactorEnabled = twoFactorEnabled;
-
         }
 
     }
