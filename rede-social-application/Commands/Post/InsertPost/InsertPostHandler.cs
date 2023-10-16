@@ -31,6 +31,10 @@ namespace rede_social_application.Commands.Post.InsertPost
 
                 var data = this.mapper.Map<PostEF>(request);
 
+                if (request.Image == null)
+                    data.Image = "";
+
+
                 await postRepository.InsertPost(data);
 
                 return new Response<string>("Ok", true);
