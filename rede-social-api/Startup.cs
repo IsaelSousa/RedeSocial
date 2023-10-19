@@ -16,6 +16,7 @@ using rede_social_application.Commands.Post.InsertPost;
 using rede_social_domain.Entities.PostAggregate;
 using AutoMapper;
 using rede_social_application.Mapper;
+using rede_social_domain.Entities.FriendAggregate;
 
 namespace rede_social_api
 {
@@ -47,6 +48,7 @@ namespace rede_social_api
             //Repository
             service.AddScoped<IAuthRepository, AuthRepository>();
             service.AddScoped<IPostRepository, PostRepository>();
+            service.AddScoped<IFriendRepository, FriendRepository>();
 
             service.ConfigureApplicationCookie(options =>
             {
