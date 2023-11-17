@@ -13,8 +13,12 @@
         "packagesPath": "C:\\Users\\toxic\\.nuget\\packages\\",
         "outputPath": "E:\\www\\CSharp\\RedeSocial\\rede-social-domain\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\DevExpress 23.1\\Components\\Offline Packages"
+        ],
         "configFilePaths": [
           "C:\\Users\\toxic\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 23.1.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,8 +26,10 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\DevExpress 23.1\\Components\\System\\Components\\Packages": {},
           "https://api.nuget.org/v3/index.json": {},
-          "https://git.sequor.com.br/api/v4/groups/670/-/packages/nuget/index.json": {}
+          "https://git.sequor.com.br/api/v4/groups/670/-/packages/nuget/index.json": {},
+          "https://nuget.devexpress.com/bHbELcErA3v2ssBPiEicZwmuHuqF8aWRIlGo4kvIhK3fWCugjb/api": {}
         },
         "frameworks": {
           "net7.0": {
