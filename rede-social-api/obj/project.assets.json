@@ -2993,11 +2993,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\www\\CSharp\\RedeSocial\\rede-social-api\\rede-social-api.csproj",
+      "projectUniqueName": "C:\\Projetos\\Apps\\backend\\RedeSocial\\rede-social-api\\rede-social-api.csproj",
       "projectName": "rede-social-api",
-      "projectPath": "E:\\www\\CSharp\\RedeSocial\\rede-social-api\\rede-social-api.csproj",
+      "projectPath": "C:\\Projetos\\Apps\\backend\\RedeSocial\\rede-social-api\\rede-social-api.csproj",
       "packagesPath": "C:\\Users\\toxic\\.nuget\\packages\\",
-      "outputPath": "E:\\www\\CSharp\\RedeSocial\\rede-social-api\\obj\\",
+      "outputPath": "C:\\Projetos\\Apps\\backend\\RedeSocial\\rede-social-api\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\DevExpress 23.1\\Components\\Offline Packages"
@@ -3022,14 +3022,14 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "E:\\www\\CSharp\\RedeSocial\\rede-social-application\\rede-social-application.csproj": {
-              "projectPath": "E:\\www\\CSharp\\RedeSocial\\rede-social-application\\rede-social-application.csproj"
+            "C:\\Projetos\\Apps\\backend\\RedeSocial\\rede-social-application\\rede-social-application.csproj": {
+              "projectPath": "C:\\Projetos\\Apps\\backend\\RedeSocial\\rede-social-application\\rede-social-application.csproj"
             },
-            "E:\\www\\CSharp\\RedeSocial\\rede-social-domain\\rede-social-domain.csproj": {
-              "projectPath": "E:\\www\\CSharp\\RedeSocial\\rede-social-domain\\rede-social-domain.csproj"
+            "C:\\Projetos\\Apps\\backend\\RedeSocial\\rede-social-domain\\rede-social-domain.csproj": {
+              "projectPath": "C:\\Projetos\\Apps\\backend\\RedeSocial\\rede-social-domain\\rede-social-domain.csproj"
             },
-            "E:\\www\\CSharp\\RedeSocial\\rede-social-infraestructure\\rede-social-infraestructure.csproj": {
-              "projectPath": "E:\\www\\CSharp\\RedeSocial\\rede-social-infraestructure\\rede-social-infraestructure.csproj"
+            "C:\\Projetos\\Apps\\backend\\RedeSocial\\rede-social-infraestructure\\rede-social-infraestructure.csproj": {
+              "projectPath": "C:\\Projetos\\Apps\\backend\\RedeSocial\\rede-social-infraestructure\\rede-social-infraestructure.csproj"
             }
           }
         }

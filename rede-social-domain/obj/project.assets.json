@@ -588,11 +588,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\www\\CSharp\\RedeSocial\\rede-social-domain\\rede-social-domain.csproj",
+      "projectUniqueName": "C:\\Projetos\\Apps\\backend\\RedeSocial\\rede-social-domain\\rede-social-domain.csproj",
       "projectName": "rede-social-domain",
-      "projectPath": "E:\\www\\CSharp\\RedeSocial\\rede-social-domain\\rede-social-domain.csproj",
+      "projectPath": "C:\\Projetos\\Apps\\backend\\RedeSocial\\rede-social-domain\\rede-social-domain.csproj",
       "packagesPath": "C:\\Users\\toxic\\.nuget\\packages\\",
-      "outputPath": "E:\\www\\CSharp\\RedeSocial\\rede-social-domain\\obj\\",
+      "outputPath": "C:\\Projetos\\Apps\\backend\\RedeSocial\\rede-social-domain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\DevExpress 23.1\\Components\\Offline Packages"

@@ -8,7 +8,7 @@ namespace rede_social_domain.Models.EFModels
 {
     public class FriendsEF
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
         public string UserId { get; set; }
         public string FriendId { get; set; }
         public bool FriendAccept { get; set; }

@@ -11,5 +11,6 @@ namespace rede_social_domain.Entities.AuthAggregate
     public interface IAuthRepository
     {
         public Task<ApplicationUser> GetUserById(string id);
+        public Task<ApplicationUser> GetUserName(string userName);
     }
 }

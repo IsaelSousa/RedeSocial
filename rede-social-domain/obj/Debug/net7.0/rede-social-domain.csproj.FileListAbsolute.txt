@@ -46,3 +46,15 @@ E:\www\CSharp\RedeSocial\rede-social-domain\obj\Debug\net7.0\rede-social-domain.
 E:\www\CSharp\RedeSocial\rede-social-domain\obj\Debug\net7.0\refint\rede-social-domain.dll
 E:\www\CSharp\RedeSocial\rede-social-domain\obj\Debug\net7.0\rede-social-domain.pdb
 E:\www\CSharp\RedeSocial\rede-social-domain\obj\Debug\net7.0\ref\rede-social-domain.dll
+C:\Projetos\Apps\backend\RedeSocial\rede-social-domain\bin\Debug\net7.0\rede-social-domain.deps.json
+C:\Projetos\Apps\backend\RedeSocial\rede-social-domain\bin\Debug\net7.0\rede-social-domain.dll
+C:\Projetos\Apps\backend\RedeSocial\rede-social-domain\bin\Debug\net7.0\rede-social-domain.pdb
+C:\Projetos\Apps\backend\RedeSocial\rede-social-domain\obj\Debug\net7.0\rede-social-domain.csproj.AssemblyReference.cache
+C:\Projetos\Apps\backend\RedeSocial\rede-social-domain\obj\Debug\net7.0\rede-social-domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projetos\Apps\backend\RedeSocial\rede-social-domain\obj\Debug\net7.0\rede-social-domain.AssemblyInfoInputs.cache
+C:\Projetos\Apps\backend\RedeSocial\rede-social-domain\obj\Debug\net7.0\rede-social-domain.AssemblyInfo.cs
+C:\Projetos\Apps\backend\RedeSocial\rede-social-domain\obj\Debug\net7.0\rede-social-domain.csproj.CoreCompileInputs.cache
+C:\Projetos\Apps\backend\RedeSocial\rede-social-domain\obj\Debug\net7.0\rede-social-domain.dll
+C:\Projetos\Apps\backend\RedeSocial\rede-social-domain\obj\Debug\net7.0\refint\rede-social-domain.dll
+C:\Projetos\Apps\backend\RedeSocial\rede-social-domain\obj\Debug\net7.0\rede-social-domain.pdb
+C:\Projetos\Apps\backend\RedeSocial\rede-social-domain\obj\Debug\net7.0\ref\rede-social-domain.dll

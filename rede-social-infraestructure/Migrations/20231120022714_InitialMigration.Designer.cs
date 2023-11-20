@@ -12,8 +12,8 @@ using rede_social_infraestructure.EntityFramework.Context;
 namespace rede_social_infraestructure.Migrations
 {
     [DbContext(typeof(EFContext))]
-    [Migration("20231117023448_FriendsList")]
-    partial class FriendsList
+    [Migration("20231120022714_InitialMigration")]
+    partial class InitialMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -107,9 +107,11 @@ namespace rede_social_infraestructure.Migrations
                     b.Property<bool>("FriendAccept")
                         .HasColumnType("boolean");
 
-                    b.Property<string>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("text");
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.HasKey("UserId", "FriendId");
 

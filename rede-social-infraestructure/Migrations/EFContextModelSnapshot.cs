@@ -104,9 +104,11 @@ namespace rede_social_infraestructure.Migrations
                     b.Property<bool>("FriendAccept")
                         .HasColumnType("boolean");
 
-                    b.Property<string>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("text");
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.HasKey("UserId", "FriendId");
 

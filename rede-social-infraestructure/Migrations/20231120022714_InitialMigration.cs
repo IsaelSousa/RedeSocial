@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
+using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
@@ -13,6 +14,23 @@ namespace rede_social_infraestructure.Migrations
         {
             migrationBuilder.EnsureSchema(
                 name: "dbo");
+
+            migrationBuilder.CreateTable(
+                name: "Friends",
+                schema: "dbo",
+                columns: table => new
+                {
+                    UserId = table.Column<string>(type: "text", nullable: false),
+                    FriendId = table.Column<string>(type: "text", nullable: false),
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    FriendAccept = table.Column<bool>(type: "boolean", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValueSql: "CURRENT_TIMESTAMP")
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Friends", x => new { x.UserId, x.FriendId });
+                });
 
             migrationBuilder.CreateTable(
                 name: "Logins",
@@ -98,6 +116,10 @@ namespace rede_social_infraestructure.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Friends",
+                schema: "dbo");
+
             migrationBuilder.DropTable(
                 name: "Logins",
                 schema: "dbo");

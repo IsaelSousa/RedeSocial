@@ -17,6 +17,7 @@ using rede_social_domain.Entities.PostAggregate;
 using AutoMapper;
 using rede_social_application.Mapper;
 using rede_social_domain.Entities.FriendAggregate;
+using rede_social_application.Commands.Friend.InviteFriend;
 
 namespace rede_social_api
 {
@@ -37,6 +38,7 @@ namespace rede_social_api
             service.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(RegisterHandler).GetTypeInfo().Assembly));
             service.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(GetPostHandler).GetTypeInfo().Assembly));
             service.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(InsertPostHandler).GetTypeInfo().Assembly));
+            service.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(InviteFriendHandler).GetTypeInfo().Assembly));
 
             service.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<EFContext>()

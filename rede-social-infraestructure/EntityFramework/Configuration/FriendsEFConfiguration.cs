@@ -16,7 +16,8 @@ namespace rede_social_infraestructure.EntityFramework.Configuration
             builder.HasKey(x => new { x.UserId, x.FriendId });
 
             builder.Property(x => x.Id)
-                .ValueGeneratedOnAdd();
+                .ValueGeneratedOnAdd()
+                .IsRequired();
 
             builder.Property(x => x.UserId)
                 .IsRequired();

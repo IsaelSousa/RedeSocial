@@ -1629,11 +1629,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\www\\CSharp\\RedeSocial\\rede-social-infraestructure\\rede-social-infraestructure.csproj",
+      "projectUniqueName": "C:\\Projetos\\Apps\\backend\\RedeSocial\\rede-social-infraestructure\\rede-social-infraestructure.csproj",
       "projectName": "rede-social-infraestructure",
-      "projectPath": "E:\\www\\CSharp\\RedeSocial\\rede-social-infraestructure\\rede-social-infraestructure.csproj",
+      "projectPath": "C:\\Projetos\\Apps\\backend\\RedeSocial\\rede-social-infraestructure\\rede-social-infraestructure.csproj",
       "packagesPath": "C:\\Users\\toxic\\.nuget\\packages\\",
-      "outputPath": "E:\\www\\CSharp\\RedeSocial\\rede-social-infraestructure\\obj\\",
+      "outputPath": "C:\\Projetos\\Apps\\backend\\RedeSocial\\rede-social-infraestructure\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\DevExpress 23.1\\Components\\Offline Packages"
@@ -1657,8 +1657,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "E:\\www\\CSharp\\RedeSocial\\rede-social-domain\\rede-social-domain.csproj": {
-              "projectPath": "E:\\www\\CSharp\\RedeSocial\\rede-social-domain\\rede-social-domain.csproj"
+            "C:\\Projetos\\Apps\\backend\\RedeSocial\\rede-social-domain\\rede-social-domain.csproj": {
+              "projectPath": "C:\\Projetos\\Apps\\backend\\RedeSocial\\rede-social-domain\\rede-social-domain.csproj"
             }
           }
         }
