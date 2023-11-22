@@ -33,6 +33,11 @@ namespace rede_social_infraestructure.EntityFramework.Repositories
             return data;
         }
 
+        public async Task<List<FriendsEF>> VerifyExistsInviteUser(string id)
+        {
+            return await this.DbSet.Where(x => x.UserId == id).ToListAsync();
+        }
+
         public async Task<List<FriendsEF>> GetAllFriends(string id)
         {
             var data = await this.DbSet.Where(x => x.UserId == id).ToListAsync();

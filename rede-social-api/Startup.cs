@@ -48,9 +48,9 @@ namespace rede_social_api
             service.AddAutoMapper(typeof(MapperProfile));
 
             //Repository
-            service.AddScoped<IAuthRepository, AuthRepository>();
-            service.AddScoped<IPostRepository, PostRepository>();
-            service.AddScoped<IFriendRepository, FriendRepository>();
+            service.AddTransient<IAuthRepository, AuthRepository>();
+            service.AddTransient<IPostRepository, PostRepository>();
+            service.AddTransient<IFriendRepository, FriendRepository>();
 
             service.ConfigureApplicationCookie(options =>
             {

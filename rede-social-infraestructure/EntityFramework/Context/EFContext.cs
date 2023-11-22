@@ -29,6 +29,7 @@ namespace rede_social_infraestructure.EntityFramework.Context
             builder.ApplyConfiguration(new FriendsEFConfiguration());
 
             base.OnModelCreating(builder);
+
         }
 
         public override int SaveChanges()

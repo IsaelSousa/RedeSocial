@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using rede_social_application.Commands.Friend.GetRequestInvite;
 using rede_social_application.Commands.Friend.InviteFriend;
 using rede_social_application.Commands.Post.InsertPost;
 using rede_social_application.Models;
@@ -24,9 +25,16 @@ namespace rede_social_api.Controllers
         [HttpGet("[action]")]
         [Consumes("text/plain")]
         [Produces("application/json")]
-        public Task<Response<string>> List()
+        public async Task<Response<List<RequestInviteModel>>> PendentInvite()
         {
-            return null;
+            var body = String.Empty;
+            string token = Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
+
+            Dictionary<string, string> deserializedToken = Token.Deserialize(token);
+
+            GetRequestInviteRequest data = new GetRequestInviteRequest();
+            data.Id = deserializedToken["Id"];
+            return await this._mediator.Send(data);
         }
 
         [HttpPost("[action]")]
