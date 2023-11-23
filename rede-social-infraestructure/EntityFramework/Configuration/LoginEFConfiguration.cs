@@ -15,6 +15,10 @@ namespace rede_social_infraestructure.EntityFramework.Configuration
     {
         public void Configure(EntityTypeBuilder<ApplicationUser> builder)
         {
+            builder.HasKey(e => new { e.UserName, e.Id });
+
+            builder.Property(x => x.UserName)
+                .IsRequired();
 
             builder.Property(x => x.CreatedAt)
                 .HasDefaultValueSql("CURRENT_TIMESTAMP")

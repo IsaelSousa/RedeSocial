@@ -24,6 +24,19 @@ namespace rede_social_infraestructure.EntityFramework.Repositories
             return friend;
         }
 
+        public async Task<bool> AcceptInvite(string userId, string friendUserName)
+        {
+            var data = await this.DbSet.Where(x => x.UserId == userId && x.FriendUserName == friendUserName && !x.FriendAccept).FirstAsync();
+
+            data.FriendAccept = true;
+
+            if (data == null) return false;
+            
+            _dbContext.Update(data);
+            _dbContext.SaveChanges();
+            return true;
+        }
+
         public async Task<FriendsEF> VerifyExistsInvite(FriendsEF friend)
         {
             var data = await this.DbSet.Where(x => x.UserId == friend.UserId && x.FriendId == friend.FriendId).FirstOrDefaultAsync();
@@ -35,7 +48,7 @@ namespace rede_social_infraestructure.EntityFramework.Repositories
 
         public async Task<List<FriendsEF>> VerifyExistsInviteUser(string id)
         {
-            return await this.DbSet.Where(x => x.UserId == id).ToListAsync();
+            return await this.DbSet.Where(x => x.UserId == id && !x.FriendAccept).ToListAsync();
         }
 
         public async Task<List<FriendsEF>> GetAllFriends(string id)
