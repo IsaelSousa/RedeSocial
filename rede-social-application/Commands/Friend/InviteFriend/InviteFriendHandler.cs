@@ -28,6 +28,7 @@ namespace rede_social_application.Commands.Friend.InviteFriend
         public async Task<Response<bool>> Handle(InviteFriendRequest request, CancellationToken cancellationToken)
         {
             var friend = await authRepository.GetUserName(request.FriendUserName);
+            var UserById = await authRepository.GetUserById(request.UserId);
 
             if (friend.Id == request.UserId) return new Response<bool>(false).AddMessage("You cannot use your username!");
 
@@ -36,7 +37,9 @@ namespace rede_social_application.Commands.Friend.InviteFriend
             FriendsModel friendsModel = new FriendsModel();
             friendsModel.FriendAccept = true;
             friendsModel.UserId = request.UserId;
+            friendsModel.UserName = UserById.UserName;
             friendsModel.FriendId = friend.Id;
+            friendsModel.FriendUserName = friend.UserName;
 
             var invite = this.mapper.Map<FriendsEF>(friendsModel);
 
@@ -48,6 +51,8 @@ namespace rede_social_application.Commands.Friend.InviteFriend
 
             friendsModel.FriendAccept = false;
             friendsModel.UserId = friend.Id;
+            friendsModel.UserName = friend.UserName;
+            friendsModel.FriendUserName = UserById.UserName;
             friendsModel.FriendId = request.UserId;
 
             var reverseInvite = this.mapper.Map<FriendsEF>(friendsModel);

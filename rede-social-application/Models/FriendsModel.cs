@@ -10,7 +10,9 @@ namespace rede_social_application.Models
     {
         public string Id { get; set; }
         public string UserId { get; set; }
+        public string UserName { get; set; }
         public string FriendId { get; set; }
+        public string FriendUserName { get; set; }
         public bool FriendAccept { get; set; }
         public DateTime CreatedAt { get; set; }
     }

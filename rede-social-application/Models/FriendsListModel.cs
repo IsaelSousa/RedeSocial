@@ -8,7 +8,7 @@ namespace rede_social_application.Models
 {
     public class FriendsListModel
     {
-        public string FriendName {  get; set; }
-        public DateTime InvitedAt { get; set; }
+        public string UserName {  get; set; }
+        public DateTime CreatedAt { get; set; }
     }
 }

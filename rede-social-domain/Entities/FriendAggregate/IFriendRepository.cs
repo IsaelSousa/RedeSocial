@@ -14,5 +14,6 @@ namespace rede_social_domain.Entities.FriendAggregate
         public Task<List<FriendsEF>> VerifyExistsInviteUser(string id);
         public Task<bool> RemoveAsync(string friendId);
         public Task<FriendsEF> VerifyExistsInvite(FriendsEF friend);
+        public Task<bool> AcceptInvite(string userId, string friendUserName);
     }
 }
