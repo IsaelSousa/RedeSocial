@@ -20,7 +20,7 @@ namespace rede_social_application.Mapper
                 .ReverseMap();
 
             CreateMap<FriendsEF, FriendsListModel>()
-                .ForMember(dest => dest.UserName, opts => opts.MapFrom(src => src.UserName))
+                .ForMember(dest => dest.UserName, opts => opts.MapFrom(src => src.FriendUserName))
                 .ReverseMap();
         }
     }
