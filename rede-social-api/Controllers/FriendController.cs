@@ -53,7 +53,6 @@ namespace rede_social_api.Controllers
 
             AcceptFriendRequest data = EncryptionHelper.DecryptData<AcceptFriendRequest>(body);
             data.Id = deserializedToken["Id"];
-            data.UserName = deserializedToken["UserName"];
             return await this._mediator.Send(data);
         }
 
