@@ -26,7 +26,11 @@ namespace rede_social_infraestructure.EntityFramework.Repositories
 
         public async Task<bool> AcceptInvite(string userId, string friendUserName)
         {
-            var data = await this.DbSet.Where(x => x.UserId == userId && x.FriendUserName == friendUserName && !x.FriendAccept).FirstAsync();
+            var data = await this.DbSet
+                .Where(x => x.UserId == userId && x.FriendUserName == friendUserName && !x.FriendAccept)
+                .FirstAsync();
+
+            if (data.FriendAccept == true) return true;
 
             data.FriendAccept = true;
 

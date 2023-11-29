@@ -26,4 +26,8 @@
     <ProjectReference Include="..\rede-social-infraestructure\rede-social-infraestructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Services\" />
+  </ItemGroup>
+
 </Project>

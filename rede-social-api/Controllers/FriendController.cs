@@ -73,5 +73,13 @@ namespace rede_social_api.Controllers
             data.UserId = deserializedToken["Id"];
             return await this._mediator.Send(data);
         }
+
+        [HttpGet("[action]")]
+        [Consumes("text/plain")]
+        [Produces("application/json")]
+        public async Task<Response<List<FriendsListModel>>> GetAllFriends()
+        {
+
+        }
     }
 }
