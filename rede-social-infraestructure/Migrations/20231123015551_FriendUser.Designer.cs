@@ -12,8 +12,8 @@ using rede_social_infraestructure.EntityFramework.Context;
 namespace rede_social_infraestructure.Migrations
 {
     [DbContext(typeof(EFContext))]
-    [Migration("20231009034315_InitialMigration")]
-    partial class InitialMigration
+    [Migration("20231123015551_FriendUser")]
+    partial class FriendUser
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -89,6 +89,41 @@ namespace rede_social_infraestructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Logins", "dbo");
+                });
+
+            modelBuilder.Entity("rede_social_domain.Models.EFModels.FriendsEF", b =>
+                {
+                    b.Property<string>("UserId")
+                        .HasColumnType("text");
+
+                    b.Property<string>("FriendId")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("timestamp with time zone")
+                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
+
+                    b.Property<bool>("FriendAccept")
+                        .HasColumnType("boolean");
+
+                    b.Property<string>("FriendUserName")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("UserId", "FriendId");
+
+                    b.ToTable("Friends", "dbo");
                 });
 
             modelBuilder.Entity("rede_social_domain.Models.EFModels.PostComments", b =>

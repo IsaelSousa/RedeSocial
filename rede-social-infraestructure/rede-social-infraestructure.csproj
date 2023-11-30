@@ -27,4 +27,8 @@
     <ProjectReference Include="..\rede-social-domain\rede-social-domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
 </Project>

@@ -88,6 +88,41 @@ namespace rede_social_infraestructure.Migrations
                     b.ToTable("Logins", "dbo");
                 });
 
+            modelBuilder.Entity("rede_social_domain.Models.EFModels.FriendsEF", b =>
+                {
+                    b.Property<string>("UserId")
+                        .HasColumnType("text");
+
+                    b.Property<string>("FriendId")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("timestamp with time zone")
+                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
+
+                    b.Property<bool>("FriendAccept")
+                        .HasColumnType("boolean");
+
+                    b.Property<string>("FriendUserName")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("UserId", "FriendId");
+
+                    b.ToTable("Friends", "dbo");
+                });
+
             modelBuilder.Entity("rede_social_domain.Models.EFModels.PostComments", b =>
                 {
                     b.Property<string>("Id")

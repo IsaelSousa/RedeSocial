@@ -24,6 +24,25 @@ namespace rede_social_application.Models
             this.status = status;
         }
 
+        public Response(bool status)
+        {
+            this.message = "";
+            this.status = status;
+        }
+        public Response(T data)
+        {
+            this.data = data;
+            if (this.data != null) this.status = true;
+            else this.status = false;
+        }
+
+        public Response<T> AddMessage(string message)
+        {
+            this.message = message;
+            return this;
+        }
+
+
     }
 
 }

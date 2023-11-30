@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "E:\\www\\CSharp\\RedeSocial\\rede-social-api\\rede-social-api.csproj": {}
+    "C:\\Projetos\\Apps\\backend\\RedeSocial\\rede-social-api\\rede-social-api.csproj": {}
   },
   "projects": {
-    "E:\\www\\CSharp\\RedeSocial\\rede-social-api\\rede-social-api.csproj": {
+    "C:\\Projetos\\Apps\\backend\\RedeSocial\\rede-social-api\\rede-social-api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\www\\CSharp\\RedeSocial\\rede-social-api\\rede-social-api.csproj",
+        "projectUniqueName": "C:\\Projetos\\Apps\\backend\\RedeSocial\\rede-social-api\\rede-social-api.csproj",
         "projectName": "rede-social-api",
-        "projectPath": "E:\\www\\CSharp\\RedeSocial\\rede-social-api\\rede-social-api.csproj",
+        "projectPath": "C:\\Projetos\\Apps\\backend\\RedeSocial\\rede-social-api\\rede-social-api.csproj",
         "packagesPath": "C:\\Users\\toxic\\.nuget\\packages\\",
-        "outputPath": "E:\\www\\CSharp\\RedeSocial\\rede-social-api\\obj\\",
+        "outputPath": "C:\\Projetos\\Apps\\backend\\RedeSocial\\rede-social-api\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\DevExpress 23.1\\Components\\Offline Packages"
+        ],
         "configFilePaths": [
           "C:\\Users\\toxic\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 23.1.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,22 +26,24 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\DevExpress 23.1\\Components\\System\\Components\\Packages": {},
           "C:\\Program Files\\dotnet\\sdk\\7.0.304\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {},
-          "https://git.sequor.com.br/api/v4/groups/670/-/packages/nuget/index.json": {}
+          "https://git.sequor.com.br/api/v4/groups/670/-/packages/nuget/index.json": {},
+          "https://nuget.devexpress.com/bHbELcErA3v2ssBPiEicZwmuHuqF8aWRIlGo4kvIhK3fWCugjb/api": {}
         },
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "E:\\www\\CSharp\\RedeSocial\\rede-social-application\\rede-social-application.csproj": {
-                "projectPath": "E:\\www\\CSharp\\RedeSocial\\rede-social-application\\rede-social-application.csproj"
+              "C:\\Projetos\\Apps\\backend\\RedeSocial\\rede-social-application\\rede-social-application.csproj": {
+                "projectPath": "C:\\Projetos\\Apps\\backend\\RedeSocial\\rede-social-application\\rede-social-application.csproj"
               },
-              "E:\\www\\CSharp\\RedeSocial\\rede-social-domain\\rede-social-domain.csproj": {
-                "projectPath": "E:\\www\\CSharp\\RedeSocial\\rede-social-domain\\rede-social-domain.csproj"
+              "C:\\Projetos\\Apps\\backend\\RedeSocial\\rede-social-domain\\rede-social-domain.csproj": {
+                "projectPath": "C:\\Projetos\\Apps\\backend\\RedeSocial\\rede-social-domain\\rede-social-domain.csproj"
               },
-              "E:\\www\\CSharp\\RedeSocial\\rede-social-infraestructure\\rede-social-infraestructure.csproj": {
-                "projectPath": "E:\\www\\CSharp\\RedeSocial\\rede-social-infraestructure\\rede-social-infraestructure.csproj"
+              "C:\\Projetos\\Apps\\backend\\RedeSocial\\rede-social-infraestructure\\rede-social-infraestructure.csproj": {
+                "projectPath": "C:\\Projetos\\Apps\\backend\\RedeSocial\\rede-social-infraestructure\\rede-social-infraestructure.csproj"
               }
             }
           }
@@ -106,17 +112,21 @@
         }
       }
     },
-    "E:\\www\\CSharp\\RedeSocial\\rede-social-application\\rede-social-application.csproj": {
+    "C:\\Projetos\\Apps\\backend\\RedeSocial\\rede-social-application\\rede-social-application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\www\\CSharp\\RedeSocial\\rede-social-application\\rede-social-application.csproj",
+        "projectUniqueName": "C:\\Projetos\\Apps\\backend\\RedeSocial\\rede-social-application\\rede-social-application.csproj",
         "projectName": "rede-social-application",
-        "projectPath": "E:\\www\\CSharp\\RedeSocial\\rede-social-application\\rede-social-application.csproj",
+        "projectPath": "C:\\Projetos\\Apps\\backend\\RedeSocial\\rede-social-application\\rede-social-application.csproj",
         "packagesPath": "C:\\Users\\toxic\\.nuget\\packages\\",
-        "outputPath": "E:\\www\\CSharp\\RedeSocial\\rede-social-application\\obj\\",
+        "outputPath": "C:\\Projetos\\Apps\\backend\\RedeSocial\\rede-social-application\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\DevExpress 23.1\\Components\\Offline Packages"
+        ],
         "configFilePaths": [
           "C:\\Users\\toxic\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 23.1.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -124,18 +134,20 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\DevExpress 23.1\\Components\\System\\Components\\Packages": {},
           "https://api.nuget.org/v3/index.json": {},
-          "https://git.sequor.com.br/api/v4/groups/670/-/packages/nuget/index.json": {}
+          "https://git.sequor.com.br/api/v4/groups/670/-/packages/nuget/index.json": {},
+          "https://nuget.devexpress.com/bHbELcErA3v2ssBPiEicZwmuHuqF8aWRIlGo4kvIhK3fWCugjb/api": {}
         },
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "E:\\www\\CSharp\\RedeSocial\\rede-social-domain\\rede-social-domain.csproj": {
-                "projectPath": "E:\\www\\CSharp\\RedeSocial\\rede-social-domain\\rede-social-domain.csproj"
+              "C:\\Projetos\\Apps\\backend\\RedeSocial\\rede-social-domain\\rede-social-domain.csproj": {
+                "projectPath": "C:\\Projetos\\Apps\\backend\\RedeSocial\\rede-social-domain\\rede-social-domain.csproj"
               },
-              "E:\\www\\CSharp\\RedeSocial\\rede-social-infraestructure\\rede-social-infraestructure.csproj": {
-                "projectPath": "E:\\www\\CSharp\\RedeSocial\\rede-social-infraestructure\\rede-social-infraestructure.csproj"
+              "C:\\Projetos\\Apps\\backend\\RedeSocial\\rede-social-infraestructure\\rede-social-infraestructure.csproj": {
+                "projectPath": "C:\\Projetos\\Apps\\backend\\RedeSocial\\rede-social-infraestructure\\rede-social-infraestructure.csproj"
               }
             }
           }
@@ -160,7 +172,7 @@
             },
             "MediatR": {
               "target": "Package",
-              "version": "[12.0.1, )"
+              "version": "[12.1.1, )"
             },
             "MediatR.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
@@ -203,17 +215,21 @@
         }
       }
     },
-    "E:\\www\\CSharp\\RedeSocial\\rede-social-domain\\rede-social-domain.csproj": {
+    "C:\\Projetos\\Apps\\backend\\RedeSocial\\rede-social-domain\\rede-social-domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\www\\CSharp\\RedeSocial\\rede-social-domain\\rede-social-domain.csproj",
+        "projectUniqueName": "C:\\Projetos\\Apps\\backend\\RedeSocial\\rede-social-domain\\rede-social-domain.csproj",
         "projectName": "rede-social-domain",
-        "projectPath": "E:\\www\\CSharp\\RedeSocial\\rede-social-domain\\rede-social-domain.csproj",
+        "projectPath": "C:\\Projetos\\Apps\\backend\\RedeSocial\\rede-social-domain\\rede-social-domain.csproj",
         "packagesPath": "C:\\Users\\toxic\\.nuget\\packages\\",
-        "outputPath": "E:\\www\\CSharp\\RedeSocial\\rede-social-domain\\obj\\",
+        "outputPath": "C:\\Projetos\\Apps\\backend\\RedeSocial\\rede-social-domain\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\DevExpress 23.1\\Components\\Offline Packages"
+        ],
         "configFilePaths": [
           "C:\\Users\\toxic\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 23.1.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -221,8 +237,10 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\DevExpress 23.1\\Components\\System\\Components\\Packages": {},
           "https://api.nuget.org/v3/index.json": {},
-          "https://git.sequor.com.br/api/v4/groups/670/-/packages/nuget/index.json": {}
+          "https://git.sequor.com.br/api/v4/groups/670/-/packages/nuget/index.json": {},
+          "https://nuget.devexpress.com/bHbELcErA3v2ssBPiEicZwmuHuqF8aWRIlGo4kvIhK3fWCugjb/api": {}
         },
         "frameworks": {
           "net7.0": {
@@ -269,17 +287,21 @@
         }
       }
     },
-    "E:\\www\\CSharp\\RedeSocial\\rede-social-infraestructure\\rede-social-infraestructure.csproj": {
+    "C:\\Projetos\\Apps\\backend\\RedeSocial\\rede-social-infraestructure\\rede-social-infraestructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\www\\CSharp\\RedeSocial\\rede-social-infraestructure\\rede-social-infraestructure.csproj",
+        "projectUniqueName": "C:\\Projetos\\Apps\\backend\\RedeSocial\\rede-social-infraestructure\\rede-social-infraestructure.csproj",
         "projectName": "rede-social-infraestructure",
-        "projectPath": "E:\\www\\CSharp\\RedeSocial\\rede-social-infraestructure\\rede-social-infraestructure.csproj",
+        "projectPath": "C:\\Projetos\\Apps\\backend\\RedeSocial\\rede-social-infraestructure\\rede-social-infraestructure.csproj",
         "packagesPath": "C:\\Users\\toxic\\.nuget\\packages\\",
-        "outputPath": "E:\\www\\CSharp\\RedeSocial\\rede-social-infraestructure\\obj\\",
+        "outputPath": "C:\\Projetos\\Apps\\backend\\RedeSocial\\rede-social-infraestructure\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\DevExpress 23.1\\Components\\Offline Packages"
+        ],
         "configFilePaths": [
           "C:\\Users\\toxic\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 23.1.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -287,15 +309,17 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\DevExpress 23.1\\Components\\System\\Components\\Packages": {},
           "https://api.nuget.org/v3/index.json": {},
-          "https://git.sequor.com.br/api/v4/groups/670/-/packages/nuget/index.json": {}
+          "https://git.sequor.com.br/api/v4/groups/670/-/packages/nuget/index.json": {},
+          "https://nuget.devexpress.com/bHbELcErA3v2ssBPiEicZwmuHuqF8aWRIlGo4kvIhK3fWCugjb/api": {}
         },
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "E:\\www\\CSharp\\RedeSocial\\rede-social-domain\\rede-social-domain.csproj": {
-                "projectPath": "E:\\www\\CSharp\\RedeSocial\\rede-social-domain\\rede-social-domain.csproj"
+              "C:\\Projetos\\Apps\\backend\\RedeSocial\\rede-social-domain\\rede-social-domain.csproj": {
+                "projectPath": "C:\\Projetos\\Apps\\backend\\RedeSocial\\rede-social-domain\\rede-social-domain.csproj"
               }
             }
           }

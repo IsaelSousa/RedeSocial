@@ -25,5 +25,15 @@ namespace rede_social_infraestructure.EntityFramework.Repositories
 
             return data;
         }
+
+        public async Task<ApplicationUser> GetUserName(string userName)
+        {
+            var data = await this.DbSet.FirstOrDefaultAsync(x => x.UserName == userName);
+
+            if (data == null)
+                return null;
+
+            return data;
+        }
     }
 }

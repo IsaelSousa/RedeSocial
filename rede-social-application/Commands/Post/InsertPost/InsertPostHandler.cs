@@ -39,7 +39,7 @@ namespace rede_social_application.Commands.Post.InsertPost
 
                 return new Response<string>("Ok", true);
             }
-            catch (Exception ex)
+            catch
             {
                 return new Response<string>("Error to create post", false);
             }
