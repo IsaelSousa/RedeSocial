@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using rede_social_application.Commands.Friend.AcceptFriend;
+using rede_social_application.Commands.Friend.GetFriend;
 using rede_social_application.Commands.Friend.GetRequestInvite;
 using rede_social_application.Commands.Friend.InviteFriend;
 using rede_social_application.Commands.Post.InsertPost;
@@ -79,7 +80,11 @@ namespace rede_social_api.Controllers
         [Produces("application/json")]
         public async Task<Response<List<FriendsListModel>>> GetAllFriends()
         {
+            string token = Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
 
+            Dictionary<string, string> deserializedToken = Token.Deserialize(token);
+
+            return await this._mediator.Send(new GetFriendRequest(deserializedToken["Id"]));
         }
     }
 }

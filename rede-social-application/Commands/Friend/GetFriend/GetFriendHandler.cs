@@ -1,18 +1,29 @@
-﻿using MediatR;
+﻿using AutoMapper;
+using MediatR;
 using rede_social_application.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using rede_social_domain.Entities.FriendAggregate;
 
 namespace rede_social_application.Commands.Friend.GetFriend
 {
     public class GetFriendHandler : IRequestHandler<GetFriendRequest, Response<List<FriendsListModel>>>
     {
-        public Task<Response<List<FriendsListModel>>> Handle(GetFriendRequest request, CancellationToken cancellationToken)
+        private readonly IFriendRepository repository;
+        private readonly IMapper mapper;
+
+        public GetFriendHandler(IFriendRepository repository, IMapper mapper)
         {
-            throw new NotImplementedException();
+            this.repository = repository;
+            this.mapper = mapper;
+        }
+
+        public async Task<Response<List<FriendsListModel>>> Handle(GetFriendRequest request, CancellationToken cancellationToken)
+        {
+            var data = await this.repository.GetAllFriends(request.UserId); 
+        
+            if (data == null) return new Response<List<FriendsListModel>>(false).AddMessage("Empty friends list!");
+
+            return new Response<List<FriendsListModel>>(this.mapper.Map<List<FriendsListModel>>(data));
+
         }
     }
 }
