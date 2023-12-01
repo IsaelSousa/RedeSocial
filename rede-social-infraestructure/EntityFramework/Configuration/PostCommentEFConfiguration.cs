@@ -37,6 +37,10 @@ namespace rede_social_infraestructure.EntityFramework.Configuration
             builder.Property(e => e.LastUpdated)
                 .HasDefaultValueSql("CURRENT_TIMESTAMP")
                 .IsRequired();
+
+            builder.Property(x => x.IsDeleted)
+                .HasDefaultValue(0)
+                .IsRequired();
         }
     }
 }

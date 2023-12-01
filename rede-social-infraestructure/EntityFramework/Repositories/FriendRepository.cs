@@ -64,16 +64,20 @@ namespace rede_social_infraestructure.EntityFramework.Repositories
             return data;
         }
 
-        public async Task<bool> RemoveAsync(string friendId)
+        public async Task<bool> RemoveAsync(string id, string friendUserName)
         {
-            var user = await this.DbSet.Where(x => x.FriendId == friendId).FirstOrDefaultAsync();
-            if (user != null)
-            {
-                this.DbSet.Remove(user);
-                await this._dbContext.SaveChangesAsync();
-                return true;
-            }
-            else { return false; }
+            var data = await this.DbSet.Where(x => x.UserId == id && x.FriendUserName == friendUserName).FirstOrDefaultAsync();
+
+            if (data == null) return false;
+
+            if (data.FriendAccept == true) return true;
+
+            data.FriendAccept = false;
+
+            _dbContext.Update(data);
+            _dbContext.SaveChanges();
+            return true;
+
         }
     }
 }
