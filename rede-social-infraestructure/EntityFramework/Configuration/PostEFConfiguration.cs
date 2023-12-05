@@ -31,7 +31,7 @@ namespace rede_social_infraestructure.EntityFramework.Configuration
                 .HasDefaultValueSql("CURRENT_TIMESTAMP")
                 .IsRequired();
 
-            builder.Property(x => x.LastUpdated)
+            builder.Property(x => x.LastUpdate)
                 .HasDefaultValueSql("CURRENT_TIMESTAMP")
                 .IsRequired();
 

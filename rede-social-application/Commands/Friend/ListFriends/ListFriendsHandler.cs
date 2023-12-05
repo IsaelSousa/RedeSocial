@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace rede_social_application.Commands.Friend.ListFriends
 {
-    public class ListFriendsHandler : IRequestHandler<ListFriendsRequest, Response<List<FriendsListModel>>>
+    public class ListFriendsHandler : IRequestHandler<ListFriendsRequest, Response<List<FriendListModel>>>
     {
         private readonly IFriendRepository friendRepository;
         private readonly IMapper mapper;
@@ -21,15 +21,15 @@ namespace rede_social_application.Commands.Friend.ListFriends
             this.mapper = mapper;
         }
 
-        public async Task<Response<List<FriendsListModel>>> Handle(ListFriendsRequest request, CancellationToken cancellationToken)
+        public async Task<Response<List<FriendListModel>>> Handle(ListFriendsRequest request, CancellationToken cancellationToken)
         {
             var data = await friendRepository.GetAllFriends(request.Id);
 
-            if (data == null) return new Response<List<FriendsListModel>>(false);
+            if (data == null) return new Response<List<FriendListModel>>(false);
 
-            var response = this.mapper.Map<List<FriendsListModel>>(data);
+            var response = this.mapper.Map<List<FriendListModel>>(data);
 
-            return new Response<List<FriendsListModel>>(response);
+            return new Response<List<FriendListModel>>(response);
 
         }
     }

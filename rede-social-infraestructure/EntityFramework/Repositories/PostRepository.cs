@@ -34,7 +34,7 @@ namespace rede_social_infraestructure.EntityFramework.Repositories
                             PostMessage = post.PostMessage,
                             Image = post.Image,
                             CreatedAt = post.CreatedAt,
-                            LastUpdated = post.LastUpdated
+                            LastUpdated = post.LastUpdate
                         };
 
             var results = await query.ToListAsync();
@@ -49,7 +49,7 @@ namespace rede_social_infraestructure.EntityFramework.Repositories
                 post.PostMessage = result.PostMessage;
                 post.Image = result.Image;
                 post.CreatedAt = result.CreatedAt;
-                post.LastUpdated = result.LastUpdated;
+                post.LastUpdate = result.LastUpdated;
 
                 data.Add(post);
             }

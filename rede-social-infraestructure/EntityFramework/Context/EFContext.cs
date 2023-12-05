@@ -13,8 +13,8 @@ namespace rede_social_infraestructure.EntityFramework.Context
         public DbSet<PostEF> Post { get; set; }
         public DbSet<PostComments> PostComments { get; set; }
         public DbSet<PostLikes> PostLikes { get; set; }
-        public DbSet<FriendsEF> Friends { get; set; }
-
+        public DbSet<FriendRequestEF> FriendRequest { get; set; }
+        public DbSet<FriendListEF> FriendList { get; set; }
         public string DbPath { get; }
         public EFContext(DbContextOptions<EFContext> options) : base(options) { }
 
@@ -26,10 +26,10 @@ namespace rede_social_infraestructure.EntityFramework.Context
             builder.ApplyConfiguration(new PostCommentEFConfiguration());
             builder.ApplyConfiguration(new PostEFConfiguration());
             builder.ApplyConfiguration(new PostLikeEFConfiguration());
-            builder.ApplyConfiguration(new FriendsEFConfiguration());
+            builder.ApplyConfiguration(new FriendRequestEFConfiguration());
+            builder.ApplyConfiguration(new FriendListEFConfiguration());
 
             base.OnModelCreating(builder);
-
         }
 
         public override int SaveChanges()

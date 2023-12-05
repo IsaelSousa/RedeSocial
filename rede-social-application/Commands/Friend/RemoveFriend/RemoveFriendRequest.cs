@@ -11,5 +11,6 @@ namespace rede_social_application.Commands.Friend.RemoveFriend
     public class RemoveFriendRequest : IRequest<Response<bool>>
     {
         public string Id { get; set; }
+        public string UserName { get; set; }
     }
 }

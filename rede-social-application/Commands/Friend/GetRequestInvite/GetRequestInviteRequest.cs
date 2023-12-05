@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace rede_social_application.Commands.Friend.GetRequestInvite
 {
-    public class GetRequestInviteRequest : IRequest<Response<List<FriendsListModel>>>
+    public class GetRequestInviteRequest : IRequest<Response<List<FriendListModel>>>
     {
         public string Id { get; set; }
     }

@@ -15,7 +15,5 @@ namespace rede_social_domain.Models.EFModels
         public string FirstName { get; set; }
         public string Image { get; set; }
         public DateTime CreatedAt { get; set; }
-        public DateTime LastUpdated { get; set; }
-
     }
 }

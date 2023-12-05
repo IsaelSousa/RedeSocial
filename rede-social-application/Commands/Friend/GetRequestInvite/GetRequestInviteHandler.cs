@@ -6,7 +6,7 @@ using rede_social_domain.Entities.FriendAggregate;
 
 namespace rede_social_application.Commands.Friend.GetRequestInvite
 {
-    public class GetRequestInviteHandler : IRequestHandler<GetRequestInviteRequest, Response<List<FriendsListModel>>>
+    public class GetRequestInviteHandler : IRequestHandler<GetRequestInviteRequest, Response<List<FriendListModel>>>
     {
         private readonly IFriendRepository friendRepository;
         private readonly IAuthRepository authRepository;
@@ -18,15 +18,15 @@ namespace rede_social_application.Commands.Friend.GetRequestInvite
             this.mapper = mapper;
         }
 
-        public async Task<Response<List<FriendsListModel>>> Handle(GetRequestInviteRequest request, CancellationToken cancellationToken)
+        public async Task<Response<List<FriendListModel>>> Handle(GetRequestInviteRequest request, CancellationToken cancellationToken)
         {
             var data = await this.friendRepository.VerifyExistsInviteUser(request.Id);
 
             if (data == null) return null;
 
-            var resp = this.mapper.Map<List<FriendsListModel>>(data);
+            var resp = this.mapper.Map<List<FriendListModel>>(data);
 
-            return new Response<List<FriendsListModel>>(resp, true); 
+            return new Response<List<FriendListModel>>(resp, true); 
         }
     }
 }

@@ -9,29 +9,24 @@ using System.Threading.Tasks;
 
 namespace rede_social_infraestructure.EntityFramework.Configuration
 {
-    internal class PostCommentEFConfiguration : IEntityTypeConfiguration<PostComments>
+    public class FriendRequestEFConfiguration : IEntityTypeConfiguration<FriendRequestEF>
     {
-        public void Configure(EntityTypeBuilder<PostComments> builder)
+        public void Configure(EntityTypeBuilder<FriendRequestEF> builder)
         {
-            builder.HasKey(e => e.Id);
+            builder.HasKey(x => x.Id);
 
             builder.Property(x => x.Id)
-                .ValueGeneratedOnAdd();
-
-            builder.Property(e => e.PostId)
+                .ValueGeneratedOnAdd()
                 .IsRequired();
 
-            builder.Property(e => e.UserId)
+            builder.Property(x => x.FromUserId)
                 .IsRequired();
 
-            builder.Property(e => e.Comment)
-                .HasMaxLength(400)
+            builder.Property(x => x.ToUserId)
                 .IsRequired();
 
-            builder.Property(e => e.Image);
-
-            builder.Property(e => e.CreatedAt)
-                .HasDefaultValueSql("CURRENT_TIMESTAMP")
+            builder.Property(x => x.Status)
+                .HasDefaultValue("P")
                 .IsRequired();
 
             builder.Property(e => e.LastUpdate)

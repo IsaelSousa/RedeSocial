@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using rede_social_application.Models;
+using rede_social_domain.Entities.AuthAggregate;
 using rede_social_domain.Entities.FriendAggregate;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,7 @@ namespace rede_social_application.Commands.Friend.AcceptFriend
     public class AcceptFriendHandler : IRequestHandler<AcceptFriendRequest, Response<bool>>
     {
         private readonly IFriendRepository friendRepository;
+        private readonly IAuthRepository authRepository;
 
         public AcceptFriendHandler(IFriendRepository friendRepository)
         {
@@ -20,13 +22,9 @@ namespace rede_social_application.Commands.Friend.AcceptFriend
 
         public async Task<Response<bool>> Handle(AcceptFriendRequest request, CancellationToken cancellationToken)
         {
-            var data = await this.friendRepository.AcceptInvite(request.Id, request.UserName);
+            var user = await this.authRepository.GetUserName(request.UserName);
 
-            if (!data) return new Response<bool>("Friend request not accept!", false);
-
-            if (data) return new Response<bool>("Friend request accepted!", true);
-
-            return new Response<bool>(false);
+            var data = await this.friendRepository.GetPendentRequest(request.Id, user.Id);
         }
     }
 }
