@@ -16,11 +16,10 @@ namespace rede_social_application.Mapper
             CreateMap<PostEF, PostModel>()
                 .ReverseMap();
 
-            CreateMap<FriendsEF, FriendRequestModel>()
+            CreateMap<FriendRequestEF, FriendRequestModel>()
                 .ReverseMap();
 
-            CreateMap<FriendsEF, FriendListModel>()
-                .ForMember(dest => dest.UserName, opts => opts.MapFrom(src => src.FriendUserName))
+            CreateMap<FriendListEF, FriendListModel>()
                 .ReverseMap();
         }
     }

@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using rede_social_domain.Entities.FriendAggregate;
 using rede_social_domain.Models.EFModels;
+using rede_social_domain.Models.Enum;
 using rede_social_infraestructure.EntityFramework.Context;
-using static Npgsql.PostgresTypes.PostgresCompositeType;
 
 namespace rede_social_infraestructure.EntityFramework.Repositories
 {
@@ -24,10 +24,15 @@ namespace rede_social_infraestructure.EntityFramework.Repositories
             return true;
         } 
 
-        public async Task AcceptedInvite(FriendRequestEF friendRequest)
+        public async Task<bool> ChangeStatusInvite(FriendRequestEF friendRequest)
         {
-            this.DbSet.Update(friendRequest);
-            await this._dbContext.SaveChangesAsync();
+            if (friendRequest.Status != FriendRequestStatusEnumConverter.ToChar(FriendStatusEnum.Refused))
+            {
+                this.DbSet.Update(friendRequest);
+                await this._dbContext.SaveChangesAsync();
+                return true;
+            }
+            else return false;
         }
 
         public async Task<FriendRequestEF> GetPendentRequest(string fromUserId, string toUserId)
@@ -37,6 +42,15 @@ namespace rede_social_infraestructure.EntityFramework.Repositories
             && x.ToUserId == toUserId
             && x.Status == 'P'
             && !x.IsDeleted);
+        }
+
+        public async Task<List<FriendRequestEF>> GetPendentUserRequestList(string userId)
+        {
+            return await this.DbSet.Where(x =>
+            x.ToUserId == userId
+            && x.Status == 'P'
+            && !x.IsDeleted)
+                .ToListAsync();
         }
     }
 }

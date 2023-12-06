@@ -25,6 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Commands\FriendList\" />
     <Folder Include="Commands\Post\EditPost\" />
     <Folder Include="Commands\Post\DeletePost\" />
   </ItemGroup>
