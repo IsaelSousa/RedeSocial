@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using rede_social_application.Commands.FriendList.InsertFriend;
 using rede_social_application.Commands.FriendList.RemoveFriend;
 using rede_social_application.Models;
 using rede_social_domain.Entities.AuthAggregate;
@@ -34,13 +35,12 @@ namespace rede_social_application.Commands.Friend.AcceptFriend
 
             if (data.Status == FriendRequestStatusEnumConverter.ToChar(FriendStatusEnum.Removed))
             {
-                RemoveFriendRequest removeFriend = new RemoveFriendRequest(request.Id, user.Id);
-                await this.mediator.Send(removeFriend);
+                await this.mediator.Send(new RemoveFriendRequest(request.Id, user.Id));
             }
 
             if (data.Status == FriendRequestStatusEnumConverter.ToChar(FriendStatusEnum.Accepted))
             {
-
+                await this.mediator.Send(new InsertFriendRequest(request.Id, user.Id));
             }
 
             return new Response<bool>(true).AddMessage("Accepted with success!");
