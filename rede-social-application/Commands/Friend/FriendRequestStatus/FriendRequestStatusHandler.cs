@@ -1,7 +1,10 @@
 ﻿using MediatR;
+using rede_social_application.Commands.FriendList.RemoveFriend;
 using rede_social_application.Models;
 using rede_social_domain.Entities.AuthAggregate;
 using rede_social_domain.Entities.FriendAggregate;
+using rede_social_domain.Entities.FriendListAggregate;
+using rede_social_domain.Models.EFModels;
 using rede_social_domain.Models.Enum;
 
 namespace rede_social_application.Commands.Friend.AcceptFriend
@@ -10,19 +13,36 @@ namespace rede_social_application.Commands.Friend.AcceptFriend
     {
         private readonly IFriendRepository friendRepository;
         private readonly IAuthRepository authRepository;
+        private readonly IMediator mediator;
 
-        public FriendRequestStatusHandler(IFriendRepository friendRepository, IAuthRepository authRepository)
+        public FriendRequestStatusHandler(IFriendRepository friendRepository, IAuthRepository authRepository, IMediator mediator)
         {
             this.friendRepository = friendRepository;
             this.authRepository = authRepository;
+            this.mediator = mediator;
         }
 
         public async Task<Response<bool>> Handle(FriendRequestStatusRequest request, CancellationToken cancellationToken)
         {
             var user = await this.authRepository.GetUserName(request.UserName);
+
             var data = await this.friendRepository.GetPendentRequest(request.Id, user.Id);
+
             data.Status = FriendRequestStatusEnumConverter.ToChar(request.Status);
+
             await this.friendRepository.ChangeStatusInvite(data);
+
+            if (data.Status == FriendRequestStatusEnumConverter.ToChar(FriendStatusEnum.Removed))
+            {
+                RemoveFriendRequest removeFriend = new RemoveFriendRequest(request.Id, user.Id);
+                await this.mediator.Send(removeFriend);
+            }
+
+            if (data.Status == FriendRequestStatusEnumConverter.ToChar(FriendStatusEnum.Accepted))
+            {
+
+            }
+
             return new Response<bool>(true).AddMessage("Accepted with success!");
         }
     }

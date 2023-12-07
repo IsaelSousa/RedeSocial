@@ -24,15 +24,10 @@ namespace rede_social_infraestructure.EntityFramework.Repositories
             return true;
         } 
 
-        public async Task<bool> ChangeStatusInvite(FriendRequestEF friendRequest)
+        public async Task ChangeStatusInvite(FriendRequestEF friendRequest)
         {
-            if (friendRequest.Status != FriendRequestStatusEnumConverter.ToChar(FriendStatusEnum.Refused))
-            {
-                this.DbSet.Update(friendRequest);
-                await this._dbContext.SaveChangesAsync();
-                return true;
-            }
-            else return false;
+            this.DbSet.Update(friendRequest);
+            await this._dbContext.SaveChangesAsync();
         }
 
         public async Task<FriendRequestEF> GetPendentRequest(string fromUserId, string toUserId)

@@ -22,6 +22,11 @@ namespace rede_social_infraestructure.EntityFramework.Repositories
            return await this.DbSet.Where(x => x.UserId == userId && !x.IsDeleted).ToListAsync();
         }
 
+        public async Task<FriendListEF> GetFriend(string userId, string toUserId)
+        {
+            return await this.DbSet.FirstOrDefaultAsync(x => x.UserId == userId && x.FriendId == toUserId && !x.IsDeleted);
+        }
+
         public async Task AddFriend(FriendListEF friendList)
         {
             var data = await this.GetAllFriends(friendList.UserId);

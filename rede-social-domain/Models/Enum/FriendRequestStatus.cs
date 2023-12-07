@@ -4,7 +4,8 @@
     {
         Pendent,
         Accepted,
-        Refused
+        Refused,
+        Removed
     }
 
     public static class FriendRequestStatusEnumConverter
@@ -16,6 +17,7 @@
                 case FriendStatusEnum.Pendent: return 'P';
                 case FriendStatusEnum.Accepted: return 'A';
                 case FriendStatusEnum.Refused: return 'R';
+                case FriendStatusEnum.Removed: return 'C';
                 default: return 'P';
             }
         }
@@ -27,6 +29,7 @@
                 case 'P': return FriendStatusEnum.Pendent;
                 case 'A': return FriendStatusEnum.Accepted;
                 case 'R': return FriendStatusEnum.Refused;
+                case 'C': return FriendStatusEnum.Removed;
                 default: return FriendStatusEnum.Pendent;
             }
         }
