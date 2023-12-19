@@ -8,5 +8,6 @@ namespace rede_social_domain.Entities.FriendListAggregate
         public Task<FriendListEF> GetFriend(string userId, string toUserId);
         public Task AddFriend(FriendListEF friendList);
         public Task DeleteUser(FriendListEF friendList);
+        public Task<List<string>> GetAllFriendList(string userId);
     }
 }

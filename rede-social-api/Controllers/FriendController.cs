@@ -1,15 +1,12 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using rede_social_api.Services;
 using rede_social_application.Commands.Friend.AcceptFriend;
 using rede_social_application.Commands.Friend.GetFriend;
-using rede_social_application.Commands.Friend.GetRequestInvite;
 using rede_social_application.Commands.Friend.InviteFriend;
-using rede_social_application.Commands.Friend.RemoveFriend;
-using rede_social_application.Commands.Post.InsertPost;
+using rede_social_application.Commands.FriendList.ListFriend;
 using rede_social_application.Models;
-using rede_social_application.Services;
-using System.Text;
 
 namespace rede_social_api.Controllers
 {
@@ -25,85 +22,41 @@ namespace rede_social_api.Controllers
             this._mediator = mediator;
         }
 
-        //[HttpGet("[action]")]
-        //[Consumes("text/plain")]
-        //[Produces("application/json")]
-        //public async Task<Response<List<FriendListModel>>> PendentInvite()
-        //{
-        //    var body = String.Empty;
-        //    string token = Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
+        [HttpGet("[action]")]
+        [Consumes("text/plain")]
+        [Produces("application/json")]
+        public async Task<Response<List<FriendRequestModel>>> PendentInvite()
+        {
+            return await this._mediator.Send(new GetFriendRequestListRequest(HeaderService.DeserializedToken(Request)));
+        }
 
-        //    Dictionary<string, string> deserializedToken = Token.Deserialize(token);
+        [HttpPost("[action]")]
+        [Consumes("text/plain")]
+        [Produces("application/json")]
+        public async Task<Response<bool>> FriendRequestStatus()
+        {
+            var payload = await HeaderService.DeserializedPayload<FriendRequestStatusRequest>(Request);
+            payload.Id = HeaderService.DeserializedToken(Request);
+            return await this._mediator.Send(new FriendRequestStatusRequest(payload));
+        }
 
-        //    GetRequestInviteRequest data = new GetRequestInviteRequest();
-        //    data.Id = deserializedToken["Id"];
-        //    return await this._mediator.Send(data);
-        //}
+        [HttpPost("[action]")]
+        [Consumes("text/plain")]
+        [Produces("application/json")]
+        public async Task<Response<bool>> SendInvite()
+        {
+            var payload = await HeaderService.DeserializedPayload<InviteFriendRequest>(Request);
+            var header = HeaderService.DeserializedToken(Request);
+            return await this._mediator.Send(new InviteFriendRequest(header, payload.FriendUserName));
+        }
 
-        //[HttpPost("[action]")]
-        //[Consumes("text/plain")]
-        //[Produces("application/json")]
-        //public async Task<Response<bool>> AcceptInvite()
-        //{
-        //    var body = String.Empty;
-        //    string token = Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
-
-        //    Dictionary<string, string> deserializedToken = Token.Deserialize(token);
-
-        //    using (var reader = new StreamReader(Request.Body, Encoding.UTF8))
-        //        body = await reader.ReadToEndAsync();
-
-        //    AcceptFriendRequest data = EncryptionHelper.DecryptData<AcceptFriendRequest>(body);
-        //    data.Id = deserializedToken["Id"];
-        //    return await this._mediator.Send(data);
-        //}
-
-        //[HttpPost("[action]")]
-        //[Consumes("text/plain")]
-        //[Produces("application/json")]
-        //public async Task<Response<bool>> Invite()
-        //{
-        //    var body = String.Empty;
-        //    string token = Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
-
-        //    Dictionary<string, string> deserializedToken = Token.Deserialize(token);
-
-        //    using (var reader = new StreamReader(Request.Body, Encoding.UTF8))
-        //        body = await reader.ReadToEndAsync();
-
-        //    InviteFriendRequest data = EncryptionHelper.DecryptData<InviteFriendRequest>(body);
-        //    data.UserId = deserializedToken["Id"];
-        //    return await this._mediator.Send(data);
-        //}
-
-        //[HttpGet("[action]")]
-        //[Consumes("text/plain")]
-        //[Produces("application/json")]
-        //public async Task<Response<List<FriendListModel>>> GetAllFriends()
-        //{
-        //    string token = Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
-
-        //    Dictionary<string, string> deserializedToken = Token.Deserialize(token);
-
-        //    return await this._mediator.Send(new GetFriendRequest(deserializedToken["Id"]));
-        //}
-
-        //[HttpPost("[action]")]
-        //[Consumes("text/plain")]
-        //[Produces("application/json")]
-        //public async Task<Response<bool>> RemoveFriend()
-        //{
-        //    var body = String.Empty;
-        //    string token = Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
-
-        //    Dictionary<string, string> deserializedToken = Token.Deserialize(token);
-
-        //    using (var reader = new StreamReader(Request.Body, Encoding.UTF8))
-        //        body = await reader.ReadToEndAsync();
-
-        //    RemoveFriendRequest data = EncryptionHelper.DecryptData<RemoveFriendRequest>(body);
-        //    data.Id = deserializedToken["Id"];
-        //    return await this._mediator.Send(data);
-        //}
+        [HttpPost("[action]")]
+        [Consumes("text/plain")]
+        [Produces("application/json")]
+        public async Task<Response<List<string>>> GetAllFriends()
+        {
+            var header = HeaderService.DeserializedToken(Request);
+            return await this._mediator.Send(new ListFriendRequest(header));
+        }
     }
 }

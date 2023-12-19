@@ -7,5 +7,11 @@ namespace rede_social_application.Commands.Friend.InviteFriend
     {
         public string UserId { get; set; }
         public string FriendUserName { get; set; }
+
+        public InviteFriendRequest(string userId, string friendUserName)
+        {
+            this.UserId = userId;
+            this.FriendUserName = friendUserName;
+        }
     }
 }

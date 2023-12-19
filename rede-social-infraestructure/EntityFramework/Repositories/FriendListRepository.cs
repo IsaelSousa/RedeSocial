@@ -10,6 +10,7 @@ namespace rede_social_infraestructure.EntityFramework.Repositories
     {
         public EFContext _dbContext { get; private set; }
         public DbSet<FriendListEF> DbSet { get; private set; }
+        public DbSet<ApplicationUser> Logins { get; private set; }
 
         public FriendListRepository(EFContext dbContext)
         {
@@ -24,7 +25,8 @@ namespace rede_social_infraestructure.EntityFramework.Repositories
 
         public async Task<FriendListEF> GetFriend(string userId, string toUserId)
         {
-            return await this.DbSet.FirstOrDefaultAsync(x => x.UserId == userId && x.FriendId == toUserId && !x.IsDeleted);
+            return await this.DbSet
+                .FirstOrDefaultAsync(x => x.UserId == userId && x.FriendId == toUserId && !x.IsDeleted);
         }
 
         public async Task AddFriend(FriendListEF friendList)
@@ -44,6 +46,21 @@ namespace rede_social_infraestructure.EntityFramework.Repositories
             friendList.LastUpdate = DateTime.Now;
             this.DbSet.Update(friendList);
             await this._dbContext.SaveChangesAsync();
+        }
+
+        public async Task<List<string>> GetAllFriendList(string userId)
+        {
+            var query = from friend in DbSet.Where(x => x.UserId == userId && !x.IsDeleted)
+                        join user in Logins
+                        on friend.FriendId equals user.Id
+                        select new
+                        {
+                            UserName = user.UserName,
+                        };
+
+            List<string> listFriends = new List<string>();
+            foreach (var item in query) listFriends.Add(item.UserName);
+            return listFriends;
         }
     }
 }
