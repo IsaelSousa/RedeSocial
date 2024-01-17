@@ -8,5 +8,12 @@ namespace rede_social_domain.Models.EFModels
         public string FromUserId { get; set; }
         public string ToUserId { get; set; }
         public char Status { get; set; }
+
+        public FriendRequestEF(string FromUserId, string ToUserId)
+        {
+            this.FromUserId = FromUserId;
+            this.ToUserId = ToUserId;
+        }
+
     }
 }

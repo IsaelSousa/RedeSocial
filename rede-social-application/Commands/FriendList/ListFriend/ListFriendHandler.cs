@@ -20,7 +20,6 @@ namespace rede_social_application.Commands.FriendList.ListFriend
             if (data == null) return new Response<List<string>>(false).AddMessage("");
 
             return new Response<List<string>>(data);
-
         }
     }
 }

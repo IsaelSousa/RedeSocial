@@ -6,8 +6,12 @@ using System.Threading.Tasks;
 
 namespace rede_social_application.Models.Enum
 {
-    public enum PendentEnum
+    public enum FriendRequestStatusEnum
     {
-        Received = 'R', Invited = 'I'
+        Pendent = 'P',
+        Accepted = 'A',
+        Cancel = 'C'
     }
+
+    public class FriendRequestStatus { }
 }

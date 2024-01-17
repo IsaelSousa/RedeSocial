@@ -2,6 +2,8 @@
 using rede_social_domain.Entities.FriendAggregate;
 using rede_social_domain.Models.EFModels;
 using rede_social_infraestructure.EntityFramework.Context;
+using rede_social_infraestructure.Migrations;
+using System.Linq;
 
 namespace rede_social_infraestructure.EntityFramework.Repositories
 {
@@ -22,6 +24,7 @@ namespace rede_social_infraestructure.EntityFramework.Repositories
         public async Task<bool> CreateInvite(FriendRequestEF friendRequest)
         {
             var data = await this.FriendEF.AddAsync(friendRequest);
+            await this._dbContext.SaveChangesAsync();
             if (data == null) return false;
             return true;
         } 
@@ -41,20 +44,31 @@ namespace rede_social_infraestructure.EntityFramework.Repositories
             && !x.IsDeleted);
         }
 
-        public async Task<List<FriendRequestList>> GetPendentUserRequestList(string userId)
+        public async Task<List<FriendRequestList>> GetPendentUserRequest(string userId, char type)
         {
-            var query = from friend in FriendEF.Where(x => x.ToUserId == userId)
-                        join user in Logins
-                        on friend.ToUserId equals user.Id
-                        select new
-                        {
-                            UserName = user.UserName
-                        };
+            if (type == 'S')
+            {
+                var result = await FriendEF
+                    .Where(x => x.ToUserId == userId && !x.IsDeleted)
+                    .Join(Logins, a => a.ToUserId, b => b.Id, (a, b) => new { Id = a.Id, UserName = b.UserName })
+                    .ToListAsync();
 
-            List<FriendRequestList> friendList = new List<FriendRequestList>();
-            foreach (var item in await query.ToListAsync()) friendList.Add(new FriendRequestList(item.UserName));
-            return friendList;
+                List<FriendRequestList> friendList = new List<FriendRequestList>();
+                foreach (var item in result) friendList.Add(new FriendRequestList(item.Id, item.UserName));
+                return friendList;
+            }
+            else if (type == 'R')
+            {
+                var result = await FriendEF
+                    .Where(x => x.FromUserId == userId && !x.IsDeleted)
+                    .Join(Logins, a => a.FromUserId, b => b.Id, (a, b) => new { Id = a.Id, UserName = b.UserName })
+                    .ToListAsync();
+
+                List<FriendRequestList> friendList = new List<FriendRequestList>();
+                foreach (var item in result) friendList.Add(new FriendRequestList(item.Id, item.UserName));
+                return friendList;
+            }
+            else return null;
         }
-
     }
 }

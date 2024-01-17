@@ -1,9 +1,4 @@
 ﻿using rede_social_domain.Models.Standard;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace rede_social_domain.Models.EFModels
 {
@@ -14,6 +9,6 @@ namespace rede_social_domain.Models.EFModels
         public string PostMessage { get; set; }
         public string FirstName { get; set; }
         public string Image { get; set; }
-        public DateTime CreatedAt { get; set; }
+        public DateTimeOffset CreatedAt { get; set; }
     }
 }

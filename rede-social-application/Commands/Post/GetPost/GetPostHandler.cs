@@ -30,7 +30,7 @@ namespace rede_social_application.Commands.Post.GetPost
 
                 return new Response<List<PostModel>>(map, true);
             }
-            catch (Exception ex)
+            catch
             {
                 return new Response<List<PostModel>>("Error to create post", false);
             }

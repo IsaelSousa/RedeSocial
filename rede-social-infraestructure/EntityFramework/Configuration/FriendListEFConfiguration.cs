@@ -8,6 +8,12 @@ namespace rede_social_infraestructure.EntityFramework.Configuration
     {
         public void Configure(EntityTypeBuilder<FriendListEF> builder)
         {
+            builder.HasKey(x => x.Id);
+
+            builder.Property(x => x.Id)
+                .ValueGeneratedOnAdd()
+                .IsRequired();
+
             builder.Property(x => x.UserId)
                 .IsRequired();
 

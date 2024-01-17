@@ -1,11 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using rede_social_domain.Models.EFModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using rede_social_domain.Utils;
 
 namespace rede_social_infraestructure.EntityFramework.Configuration
 {
@@ -13,7 +9,7 @@ namespace rede_social_infraestructure.EntityFramework.Configuration
     {
         public void Configure(EntityTypeBuilder<FriendRequestEF> builder)
         {
-            builder.HasKey(x => x.Id);
+            builder.HasKey(x => new { x.ToUserId, x.FromUserId });
 
             builder.Property(x => x.Id)
                 .ValueGeneratedOnAdd()
@@ -30,7 +26,7 @@ namespace rede_social_infraestructure.EntityFramework.Configuration
                 .IsRequired();
 
             builder.Property(e => e.LastUpdate)
-                .HasDefaultValueSql("CURRENT_TIMESTAMP")
+                .HasDefaultValue(Utils.DateTimeOffset())
                 .IsRequired();
 
             builder.Property(x => x.IsDeleted)

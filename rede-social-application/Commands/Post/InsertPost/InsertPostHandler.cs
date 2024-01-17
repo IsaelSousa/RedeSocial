@@ -4,7 +4,7 @@ using rede_social_application.Models;
 using rede_social_domain.Entities.AuthAggregate;
 using rede_social_domain.Entities.PostAggregate;
 using rede_social_domain.Models.EFModels;
-
+using rede_social_domain.Utils;
 
 namespace rede_social_application.Commands.Post.InsertPost
 {
@@ -33,7 +33,6 @@ namespace rede_social_application.Commands.Post.InsertPost
 
                 if (request.Image == null)
                     data.Image = "";
-
 
                 await postRepository.InsertPost(data);
 

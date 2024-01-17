@@ -2,11 +2,13 @@
 {
     public class FriendRequestList
     {
-        public FriendRequestList(string userName)
+        public FriendRequestList(long id, string UserName)
         {
-            this.UserName = userName;
+            this.Id = id;
+            this.UserName = UserName;
         }
 
+        public long Id { get; set; }
         public string UserName { get; set; }
     }
 }

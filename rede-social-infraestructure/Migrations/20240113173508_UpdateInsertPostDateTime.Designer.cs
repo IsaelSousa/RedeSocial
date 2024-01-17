@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using rede_social_infraestructure.EntityFramework.Context;
@@ -11,9 +12,11 @@ using rede_social_infraestructure.EntityFramework.Context;
 namespace rede_social_infraestructure.Migrations
 {
     [DbContext(typeof(EFContext))]
-    partial class EFContextModelSnapshot : ModelSnapshot
+    [Migration("20240113173508_UpdateInsertPostDateTime")]
+    partial class UpdateInsertPostDateTime
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -39,7 +42,7 @@ namespace rede_social_infraestructure.Migrations
 
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("timestamp without time zone")
+                        .HasColumnType("timestamp with time zone")
                         .HasDefaultValueSql("CURRENT_TIMESTAMP");
 
                     b.Property<string>("Email")
@@ -98,7 +101,7 @@ namespace rede_social_infraestructure.Migrations
 
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("timestamp without time zone")
+                        .HasColumnType("timestamp with time zone")
                         .HasDefaultValueSql("CURRENT_TIMESTAMP");
 
                     b.Property<string>("FriendId")
@@ -108,7 +111,7 @@ namespace rede_social_infraestructure.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("boolean");
 
-                    b.Property<DateTimeOffset>("LastUpdate")
+                    b.Property<DateTime>("LastUpdate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
                         .HasDefaultValueSql("CURRENT_TIMESTAMP");
@@ -124,34 +127,36 @@ namespace rede_social_infraestructure.Migrations
 
             modelBuilder.Entity("rede_social_domain.Models.EFModels.FriendRequestEF", b =>
                 {
-                    b.Property<string>("ToUserId")
-                        .HasColumnType("text");
-
-                    b.Property<string>("FromUserId")
-                        .HasColumnType("text");
-
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("FromUserId")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.Property<bool>("IsDeleted")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("boolean")
                         .HasDefaultValue(false);
 
-                    b.Property<DateTimeOffset>("LastUpdate")
+                    b.Property<DateTime>("LastUpdate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasDefaultValue(new DateTimeOffset(new DateTime(2024, 1, 14, 22, 17, 40, 709, DateTimeKind.Unspecified).AddTicks(1527), new TimeSpan(0, -3, 0, 0, 0)));
+                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
 
                     b.Property<char>("Status")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("character(1)")
                         .HasDefaultValue('P');
 
-                    b.HasKey("ToUserId", "FromUserId");
+                    b.Property<string>("ToUserId")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
 
                     b.ToTable("FriendRequest", "dbo");
                 });
@@ -169,7 +174,7 @@ namespace rede_social_infraestructure.Migrations
 
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("timestamp without time zone")
+                        .HasColumnType("timestamp with time zone")
                         .HasDefaultValueSql("CURRENT_TIMESTAMP");
 
                     b.Property<string>("Image")
@@ -181,7 +186,7 @@ namespace rede_social_infraestructure.Migrations
                         .HasColumnType("boolean")
                         .HasDefaultValue(false);
 
-                    b.Property<DateTimeOffset>("LastUpdate")
+                    b.Property<DateTime>("LastUpdate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
                         .HasDefaultValueSql("CURRENT_TIMESTAMP");
@@ -205,10 +210,10 @@ namespace rede_social_infraestructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("text");
 
-                    b.Property<DateTimeOffset>("CreatedAt")
+                    b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasDefaultValue(new DateTimeOffset(new DateTime(2024, 1, 14, 22, 17, 40, 708, DateTimeKind.Unspecified).AddTicks(7136), new TimeSpan(0, -3, 0, 0, 0)));
+                        .HasDefaultValue(new DateTime(2024, 1, 13, 14, 35, 8, 548, DateTimeKind.Local).AddTicks(5994));
 
                     b.Property<string>("FirstName")
                         .IsRequired()
@@ -223,10 +228,10 @@ namespace rede_social_infraestructure.Migrations
                         .HasColumnType("boolean")
                         .HasDefaultValue(false);
 
-                    b.Property<DateTimeOffset>("LastUpdate")
+                    b.Property<DateTime>("LastUpdate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasDefaultValue(new DateTimeOffset(new DateTime(2024, 1, 14, 22, 17, 40, 708, DateTimeKind.Unspecified).AddTicks(7380), new TimeSpan(0, -3, 0, 0, 0)));
+                        .HasDefaultValue(new DateTime(2024, 1, 13, 14, 35, 8, 548, DateTimeKind.Local).AddTicks(6208));
 
                     b.Property<string>("PostMessage")
                         .IsRequired()
@@ -250,7 +255,7 @@ namespace rede_social_infraestructure.Migrations
 
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("timestamp without time zone")
+                        .HasColumnType("timestamp with time zone")
                         .HasDefaultValueSql("CURRENT_TIMESTAMP");
 
                     b.Property<bool>("IsDeleted")
@@ -258,7 +263,7 @@ namespace rede_social_infraestructure.Migrations
                         .HasColumnType("boolean")
                         .HasDefaultValue(false);
 
-                    b.Property<DateTimeOffset>("LastUpdate")
+                    b.Property<DateTime>("LastUpdate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
                         .HasDefaultValueSql("CURRENT_TIMESTAMP");

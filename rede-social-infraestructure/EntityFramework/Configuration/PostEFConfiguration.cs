@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using rede_social_domain.Models.EFModels;
+using rede_social_domain.Utils;
 
 namespace rede_social_infraestructure.EntityFramework.Configuration
 {
@@ -28,11 +29,11 @@ namespace rede_social_infraestructure.EntityFramework.Configuration
                 .HasDefaultValue(null);
 
             builder.Property(x => x.CreatedAt)
-                .HasDefaultValueSql("CURRENT_TIMESTAMP")
+                .HasDefaultValue(Utils.DateTimeOffset())
                 .IsRequired();
 
             builder.Property(x => x.LastUpdate)
-                .HasDefaultValueSql("CURRENT_TIMESTAMP")
+                .HasDefaultValue(Utils.DateTimeOffset())
                 .IsRequired();
 
             builder.Property(x => x.IsDeleted)

@@ -11,6 +11,7 @@ namespace rede_social_domain.Models.EFModels
             this.FriendId = friendId;
         }
 
+        public long Id { get; set; }
         public string UserId { get; set; }
         public string FriendId { get; set; }
         public DateTime CreatedAt { get; set; }

@@ -20,10 +20,12 @@ namespace rede_social_application.Commands.Friend.InviteFriend
         public async Task<Response<bool>> Handle(InviteFriendRequest request, CancellationToken cancellationToken)
         {
             var friendName = await this.authRepository.GetUserName(request.FriendUserName);
-            FriendRequestEF friend = new FriendRequestEF();
-            friend.FromUserId = request.UserId;
-            friend.ToUserId = friendName.Id;
-            var status = await this.friendRepository.CreateInvite(friend);
+
+            var verifyExistsInvite = await this.friendRepository.GetPendentRequest(request.UserId, friendName.Id);
+            if (verifyExistsInvite != null)
+                return new Response<bool>(true).AddMessage("This invitation has already been sent.");
+
+            var status = await this.friendRepository.CreateInvite(new FriendRequestEF(request.UserId, friendName.Id));
 
             if (status == false) return new Response<bool>(false)
                     .AddMessage("Failed to create invite!");

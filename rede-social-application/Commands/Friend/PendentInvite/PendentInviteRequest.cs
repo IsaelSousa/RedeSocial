@@ -9,10 +9,9 @@ using System.Threading.Tasks;
 
 namespace rede_social_application.Commands.Friend.PendentInvite
 {
-    public class PendentInviteRequest : IRequest<Response<InviteAndReceivedModel>>
+    public class PendentInviteRequest : IRequest<Response<List<InviteAndReceivedModel>>>
     {
         public string Id { get; set; }
-        public string UserName { get; set; }
         public PendentEnum Pendent { get; set; }
     }
 }

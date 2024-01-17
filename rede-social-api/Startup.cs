@@ -18,6 +18,10 @@ using AutoMapper;
 using rede_social_application.Mapper;
 using rede_social_domain.Entities.FriendAggregate;
 using rede_social_application.Commands.Friend.InviteFriend;
+using rede_social_application.Commands.Friend.PendentInvite;
+using rede_social_application.Commands.Friend.GetFriend;
+using rede_social_application.Commands.Friend.AcceptFriend;
+using rede_social_domain.Entities.FriendListAggregate;
 
 namespace rede_social_api
 {
@@ -39,6 +43,9 @@ namespace rede_social_api
             service.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(GetPostHandler).GetTypeInfo().Assembly));
             service.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(InsertPostHandler).GetTypeInfo().Assembly));
             service.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(InviteFriendHandler).GetTypeInfo().Assembly));
+            service.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(PendentInviteHandler).GetTypeInfo().Assembly));
+            service.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(GetFriendRequestListHandler).GetTypeInfo().Assembly));
+            service.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(FriendRequestStatusHandler).GetTypeInfo().Assembly));
 
             service.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<EFContext>()
@@ -51,6 +58,7 @@ namespace rede_social_api
             service.AddTransient<IAuthRepository, AuthRepository>();
             service.AddTransient<IPostRepository, PostRepository>();
             service.AddTransient<IFriendRepository, FriendRepository>();
+            service.AddTransient<IFriendListRepository, FriendListRepository>();
 
             service.ConfigureApplicationCookie(options =>
             {
@@ -69,6 +77,9 @@ namespace rede_social_api
                     npgsqlOptions.MigrationsHistoryTable("_EFMigrationsHistory", "dbo");
                 }),
                 ServiceLifetime.Scoped);
+
+            AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+            //AppContext.SetSwitch("Npgsql.DisableDateTimeInfinityConversions", true);
 
             service
                 .AddAuthentication(options =>

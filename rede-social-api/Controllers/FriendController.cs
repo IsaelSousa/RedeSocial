@@ -5,11 +5,13 @@ using rede_social_api.Services;
 using rede_social_application.Commands.Friend.AcceptFriend;
 using rede_social_application.Commands.Friend.GetFriend;
 using rede_social_application.Commands.Friend.InviteFriend;
-using rede_social_application.Commands.FriendList.ListFriend;
+//using rede_social_application.Commands.FriendList.ListFriend;
 using rede_social_application.Models;
+using rede_social_application.Models.Enum;
 
 namespace rede_social_api.Controllers
 {
+
     [ApiController]
     [Route("[controller]")]
     [Authorize]
@@ -22,12 +24,13 @@ namespace rede_social_api.Controllers
             this._mediator = mediator;
         }
 
-        [HttpGet("[action]")]
+        [HttpPost("[action]")]
         [Consumes("text/plain")]
         [Produces("application/json")]
-        public async Task<Response<List<FriendRequestModel>>> PendentInvite()
+        public async Task<Response<List<FriendRequestListModel>>> PendentInvite()
         {
-            return await this._mediator.Send(new GetFriendRequestListRequest(HeaderService.DeserializedToken(Request)));
+            var payload = await HeaderService.DeserializedPayload<GetFriendRequestListRequest>(Request);
+            return await this._mediator.Send(new GetFriendRequestListRequest(HeaderService.DeserializedToken(Request), payload.Type));
         }
 
         [HttpPost("[action]")]
@@ -50,13 +53,13 @@ namespace rede_social_api.Controllers
             return await this._mediator.Send(new InviteFriendRequest(header, payload.FriendUserName));
         }
 
-        [HttpPost("[action]")]
-        [Consumes("text/plain")]
-        [Produces("application/json")]
-        public async Task<Response<List<string>>> GetAllFriends()
-        {
-            var header = HeaderService.DeserializedToken(Request);
-            return await this._mediator.Send(new ListFriendRequest(header));
-        }
+        //[HttpPost("[action]")]
+        //[Consumes("text/plain")]
+        //[Produces("application/json")]
+        //public async Task<Response<List<string>>> GetAllFriends()
+        //{
+        //    var header = HeaderService.DeserializedToken(Request);
+        //    return await this._mediator.Send(new ListFriendRequest(header));
+        //}
     }
 }
