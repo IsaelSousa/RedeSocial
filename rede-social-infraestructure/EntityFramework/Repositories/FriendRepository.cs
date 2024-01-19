@@ -13,7 +13,6 @@ namespace rede_social_infraestructure.EntityFramework.Repositories
         public DbSet<FriendRequestEF> FriendEF { get; set; }
         public DbSet<ApplicationUser> Logins { get; private set; }
 
-
         public FriendRepository(EFContext dbContext)
         {
             _dbContext = dbContext;
@@ -49,7 +48,7 @@ namespace rede_social_infraestructure.EntityFramework.Repositories
             if (type == 'S')
             {
                 var result = await FriendEF
-                    .Where(x => x.ToUserId == userId && !x.IsDeleted)
+                    .Where(x => x.FromUserId == userId && !x.IsDeleted)
                     .Join(Logins, a => a.ToUserId, b => b.Id, (a, b) => new { Id = a.Id, UserName = b.UserName })
                     .ToListAsync();
 
@@ -60,7 +59,7 @@ namespace rede_social_infraestructure.EntityFramework.Repositories
             else if (type == 'R')
             {
                 var result = await FriendEF
-                    .Where(x => x.FromUserId == userId && !x.IsDeleted)
+                    .Where(x => x.ToUserId == userId && !x.IsDeleted)
                     .Join(Logins, a => a.FromUserId, b => b.Id, (a, b) => new { Id = a.Id, UserName = b.UserName })
                     .ToListAsync();
 
@@ -69,6 +68,11 @@ namespace rede_social_infraestructure.EntityFramework.Repositories
                 return friendList;
             }
             else return null;
+        }
+
+        public async Task<FriendRequestEF> GetById(long id)
+        {
+            return await this.FriendEF.FirstOrDefaultAsync(x => x.Id == id && !x.IsDeleted);
         }
     }
 }

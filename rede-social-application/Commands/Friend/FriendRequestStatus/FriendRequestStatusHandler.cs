@@ -25,9 +25,9 @@ namespace rede_social_application.Commands.Friend.AcceptFriend
 
         public async Task<Response<bool>> Handle(FriendRequestStatusRequest request, CancellationToken cancellationToken)
         {
-            var user = await this.authRepository.GetUserName(request.UserName);
+            //var user = await this.authRepository.GetUserName(request.UserName);
 
-            var data = await this.friendRepository.GetPendentRequest(request.Id, user.Id);
+            var data = await this.friendRepository.GetById(request.IdFriendRequest);
 
             data.Status = FriendRequestStatusEnumConverter.ToChar(request.Status);
 
@@ -35,12 +35,12 @@ namespace rede_social_application.Commands.Friend.AcceptFriend
 
             if (data.Status == FriendRequestStatusEnumConverter.ToChar(FriendStatusEnum.Removed))
             {
-                await this.mediator.Send(new RemoveFriendRequest(request.Id, user.Id));
+                await this.mediator.Send(new RemoveFriendRequest(data.FromUserId, request.Id));
             }
 
             if (data.Status == FriendRequestStatusEnumConverter.ToChar(FriendStatusEnum.Accepted))
             {
-                await this.mediator.Send(new InsertFriendRequest(request.Id, user.Id));
+                await this.mediator.Send(new InsertFriendRequest(data.FromUserId, request.Id));
             }
 
             return new Response<bool>(true).AddMessage("Accepted with success!");

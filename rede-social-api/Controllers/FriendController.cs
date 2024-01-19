@@ -40,7 +40,7 @@ namespace rede_social_api.Controllers
         {
             var payload = await HeaderService.DeserializedPayload<FriendRequestStatusRequest>(Request);
             payload.Id = HeaderService.DeserializedToken(Request);
-            return await this._mediator.Send(new FriendRequestStatusRequest(payload));
+            return await this._mediator.Send(payload);
         }
 
         [HttpPost("[action]")]

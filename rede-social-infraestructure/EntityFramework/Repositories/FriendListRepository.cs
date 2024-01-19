@@ -18,7 +18,7 @@ namespace rede_social_infraestructure.EntityFramework.Repositories
             this.DbSet = _dbContext.Set<FriendListEF>();
         }
 
-        public async Task<List<FriendListEF>> GetAllFriends(string userId)
+        public async Task<List<FriendListEF>> GetAllRegisterOnlyFriend(string userId)
         {
            return await this.DbSet.Where(x => x.UserId == userId && !x.IsDeleted).ToListAsync();
         }
@@ -31,9 +31,9 @@ namespace rede_social_infraestructure.EntityFramework.Repositories
 
         public async Task AddFriend(FriendListEF friendList)
         {
-            var data = await this.GetAllFriends(friendList.UserId);
+            var data = await this.GetAllRegisterOnlyFriend(friendList.UserId);
 
-            if (data != null || data.Count() == 0)
+            if (data == null || data.Count() == 0)
             {
                 await this.DbSet.AddAsync(friendList);
                 await this._dbContext.SaveChangesAsync();
