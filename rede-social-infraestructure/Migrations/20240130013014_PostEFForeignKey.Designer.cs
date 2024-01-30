@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using rede_social_infraestructure.EntityFramework.Context;
@@ -11,9 +12,11 @@ using rede_social_infraestructure.EntityFramework.Context;
 namespace rede_social_infraestructure.Migrations
 {
     [DbContext(typeof(EFContext))]
-    partial class EFContextModelSnapshot : ModelSnapshot
+    [Migration("20240130013014_PostEFForeignKey")]
+    partial class PostEFForeignKey
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -144,7 +147,7 @@ namespace rede_social_infraestructure.Migrations
                     b.Property<DateTimeOffset>("LastUpdate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasDefaultValue(new DateTimeOffset(new DateTime(2024, 1, 29, 22, 35, 58, 146, DateTimeKind.Unspecified).AddTicks(6488), new TimeSpan(0, -3, 0, 0, 0)));
+                        .HasDefaultValue(new DateTimeOffset(new DateTime(2024, 1, 29, 22, 30, 14, 526, DateTimeKind.Unspecified).AddTicks(3593), new TimeSpan(0, -3, 0, 0, 0)));
 
                     b.Property<char>("Status")
                         .ValueGeneratedOnAdd()
@@ -186,7 +189,10 @@ namespace rede_social_infraestructure.Migrations
                         .HasColumnType("timestamp with time zone")
                         .HasDefaultValueSql("CURRENT_TIMESTAMP");
 
-                    b.Property<string>("PostEFId")
+                    b.Property<long>("PostEFId")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("PostEFId1")
                         .IsRequired()
                         .HasColumnType("text");
 
@@ -200,7 +206,7 @@ namespace rede_social_infraestructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("PostEFId");
+                    b.HasIndex("PostEFId1");
 
                     b.ToTable("PostComments", "dbo");
                 });
@@ -214,7 +220,7 @@ namespace rede_social_infraestructure.Migrations
                     b.Property<DateTimeOffset>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasDefaultValue(new DateTimeOffset(new DateTime(2024, 1, 29, 22, 35, 58, 146, DateTimeKind.Unspecified).AddTicks(2876), new TimeSpan(0, -3, 0, 0, 0)));
+                        .HasDefaultValue(new DateTimeOffset(new DateTime(2024, 1, 29, 22, 30, 14, 525, DateTimeKind.Unspecified).AddTicks(9763), new TimeSpan(0, -3, 0, 0, 0)));
 
                     b.Property<string>("FirstName")
                         .IsRequired()
@@ -232,7 +238,7 @@ namespace rede_social_infraestructure.Migrations
                     b.Property<DateTimeOffset>("LastUpdate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("timestamp with time zone")
-                        .HasDefaultValue(new DateTimeOffset(new DateTime(2024, 1, 29, 22, 35, 58, 146, DateTimeKind.Unspecified).AddTicks(3143), new TimeSpan(0, -3, 0, 0, 0)));
+                        .HasDefaultValue(new DateTimeOffset(new DateTime(2024, 1, 29, 22, 30, 14, 526, DateTimeKind.Unspecified).AddTicks(2), new TimeSpan(0, -3, 0, 0, 0)));
 
                     b.Property<string>("PostMessage")
                         .IsRequired()
@@ -269,7 +275,10 @@ namespace rede_social_infraestructure.Migrations
                         .HasColumnType("timestamp with time zone")
                         .HasDefaultValueSql("CURRENT_TIMESTAMP");
 
-                    b.Property<string>("PostEFId")
+                    b.Property<long>("PostEFId")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("PostEFId1")
                         .IsRequired()
                         .HasColumnType("text");
 
@@ -283,7 +292,7 @@ namespace rede_social_infraestructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("PostEFId");
+                    b.HasIndex("PostEFId1");
 
                     b.ToTable("PostLikes", "dbo");
                 });
@@ -292,7 +301,7 @@ namespace rede_social_infraestructure.Migrations
                 {
                     b.HasOne("rede_social_domain.Models.EFModels.PostEF", "PostEF")
                         .WithMany("PostComments")
-                        .HasForeignKey("PostEFId")
+                        .HasForeignKey("PostEFId1")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -303,7 +312,7 @@ namespace rede_social_infraestructure.Migrations
                 {
                     b.HasOne("rede_social_domain.Models.EFModels.PostEF", "PostEF")
                         .WithMany("PostLikes")
-                        .HasForeignKey("PostEFId")
+                        .HasForeignKey("PostEFId1")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

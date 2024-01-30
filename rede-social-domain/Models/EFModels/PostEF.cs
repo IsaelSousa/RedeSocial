@@ -10,5 +10,7 @@ namespace rede_social_domain.Models.EFModels
         public string FirstName { get; set; }
         public string Image { get; set; }
         public DateTimeOffset CreatedAt { get; set; }
+        public List<PostComments> PostComments { get; set; }
+        public List<PostLikes> PostLikes { get; set; }
     }
 }

@@ -26,8 +26,6 @@ namespace rede_social_application.Commands.Friend.PendentInvite
 
             if (request.Pendent == PendentEnum.Invited)
             {
-                //var resp = await this.friendRepository.GetPendentUserRequestList(user.Id);
-                //return new Response<List<InviteAndReceivedModel>>(this.mapper.Map<List<InviteAndReceivedModel>>(resp));
                 return new Response<List<InviteAndReceivedModel>>(false).AddMessage($"Error to list of {request.Pendent}");
             }
             else if (request.Pendent == PendentEnum.Received)

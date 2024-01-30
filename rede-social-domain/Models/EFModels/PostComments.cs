@@ -15,5 +15,6 @@ namespace rede_social_domain.Models.EFModels
         public string Comment { get; set; }
         public string Image { get; set; }
         public DateTime CreatedAt { get; set; }
+        public PostEF PostEF { get; set; }
     }
 }
